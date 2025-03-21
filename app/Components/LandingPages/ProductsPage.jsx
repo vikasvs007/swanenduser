@@ -11,105 +11,111 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const products = [
   {
     id: 1,
-    name: "Swan RGB S1",
+    name: "Swan 2 Chute (128 Channels)",
     description: "We manufacture high-quality Dal Color Sorter Machines.",
-    image: "/img1.jpeg",
+    image: "/img3.Jpg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
   {
     id: 2,
-    name: "Swan RGB C1 (Conveyor Type)",
+    name: "Swan 4 Chute (256 Channels)",
     description: "Premium sorting technology for precision sorting.",
-    image: "/img2.jpeg",
+    image: "/img1.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
   {
     id: 3,
-    name: "Swan Sundarshan",
+    name: "Swan 1 Chute (64 Channels)",
     description: "Enhance sorting efficiency with AI-powered technology.",
-    image: "/img3.jpeg",
+    image: "/img6.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
   {
     id: 4,
-    name: "Swan RGB",
+    name: "Swan 5 Chute (320 Channels)",
     description:
       "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
-    image: "/img4.jpeg",
-    video: "/Video1.mp4",
-  }, {
-    id: 5,
-    name: "Swan RGB S1",
-    description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img5.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
+  }, {
+    id: 5,
+    name: "Swan 1 Chute (64 Channels)",
+    description: "We manufacture high-quality Dal Color Sorter Machines.",
+    image: "/img4.jpeg",
+    video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
   {
     id: 6,
-    name: "Swan RGB C1 (Conveyor Type)",
+    name: "Swan 8 Chute (512 Channels)",
     description: "Premium sorting technology for precision sorting.",
     image: "/img6.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
   {
     id: 7,
-    name: "Swan Sundarshan",
+    name: "Swan 5 Chute (320 Channels)",
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img7.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
   {
     id: 8,
-    name: "Swan RGB",
+    name: "Swan 3 Chute (192 Channels)",
     description:
       "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
     image: "/img8.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   }, 
   {
     id: 9,
-    name: "Swan RGB S1",
+    name: "Swan 2 Chute (128 Channels)",
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img9.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
   {
     id: 10,
-    name: "Swan RGB C1 (Conveyor Type)",
+    name: "Swan 300 MM belt type machine",
     description: "Premium sorting technology for precision sorting.",
     image: "/img10.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
   {
     id: 11,
-    name: "Swan Sundarshan",
+    name: "Swan 1 Chute (64 Channels)",
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img11.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
   {
     id: 12,
-    name: "Swan RGB",
+    name: "Swan 1 Chute belt type machine",
     description:
       "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
     image: "/img12.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
   {
     id: 11,
-    name: "Swan Sundarshan",
+    name: "Swan 300 MM belt type machine MS Frame",
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img13.jpeg",
     video: "/Video1.mp4",
+    link: "/Products/pro1",
   },
-  {
-    id: 12,
-    name: "Swan RGB",
-    description:
-      "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
-    image: "/img14.jpeg",
-    video: "/Video1.mp4",
-  },
+  
 ];
 
 const ProductsPage = () => {
@@ -165,7 +171,7 @@ const ProductsPage = () => {
           onSwiper={(swiper) => (swiperRef.current = swiper)}
         >
           {products.map((product, index) => (
-            <SwiperSlide key={index} className="text-center p-1 sm:p-4">
+            <SwiperSlide key={product.id} className="text-center p-1 sm:p-4">
               <motion.div
                 className="bg-white shadow-lg rounded-xl p-4 sm:p-6 transition-transform duration-500 ease-in-out relative"
                 whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.2)" }}
@@ -194,7 +200,7 @@ const ProductsPage = () => {
                 <p className="text-gray-600 text-sm mt-2">{product.description}</p>
 
                 <div className="flex flex-col gap-2 mt-4">
-                  <Link href="#">
+                  <Link href={product.link}>
                     <motion.button
                       className="bg-gradient-to-r from-green-400 to-blue-400 text-white py-2 px-4 text-xs sm:text-sm rounded-lg w-full"
                       whileHover={{ scale: 1.05 }}
@@ -203,7 +209,7 @@ const ProductsPage = () => {
                       Enquiry Now
                     </motion.button>
                   </Link>
-                  <Link href="#">
+                  <Link href={`/order/${product.link}`}>
                     <motion.button
                       className="bg-gradient-to-r from-green-400 to-blue-400 text-white py-2 px-4 text-xs sm:text-sm rounded-lg w-full"
                       whileHover={{ scale: 1.05 }}
@@ -212,7 +218,7 @@ const ProductsPage = () => {
                       Order Now
                     </motion.button>
                   </Link>
-                  <Link href="#">
+                  <Link href={`/specifications/${product.link}`}>
                     <motion.button
                       className="bg-gradient-to-r from-green-400 to-blue-400 text-white py-2 px-4 text-xs sm:text-sm rounded-lg w-full"
                       whileHover={{ scale: 1.05 }}
@@ -230,4 +236,5 @@ const ProductsPage = () => {
     </motion.div>
   );
 };
+
 export default ProductsPage;

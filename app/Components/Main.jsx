@@ -12,9 +12,11 @@ import OurAims from "./LandingPages/OurAims";
 import TeamSection from "./LandingPages/TeamSection";
 import BusinessGrowthBanner from "./LandingPages/BusinessGrowthBanner";
 
+
+
 const Main = () => {
   return (
-    <div className="w-full h-auto overflow-hidden">      
+    <div className="w-full h-auto overflow-hidden ">      
       <Hero />
       <TechnologyPage />
       <OurAims />
