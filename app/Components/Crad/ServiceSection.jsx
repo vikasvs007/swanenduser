@@ -91,13 +91,13 @@ export default function ServiceSection() {
       </div>
 
       {/* Extra Service Info */}
-      <div className="max-w-4xl mx-auto mt-12 text-center bg-white  rounded-lg p-6 sm:p-8">
+      <div className="max-w-4xl mx-auto mt-12 text-center bg-white rounded-lg p-6 sm:p-8">
         <h3 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-4">
           ✨ Pre-Sale Service
         </h3>
-        <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+        <p className="text-gray-700 text-base sm:text-lg leading-loose">
           We provide{" "}
-          <span className="font-semibold text-gray-900">
+          <span className="font-semibold text-gray-900 inline-block">
             comprehensive insights
           </span>{" "}
           into our sorting solutions, ensuring they meet your unique needs.
@@ -108,22 +108,20 @@ export default function ServiceSection() {
         <h3 className="text-2xl sm:text-3xl font-bold text-green-600 mt-6 sm:mt-8 mb-4">
           🔧 After-Sale Service
         </h3>
-        <ul className="text-gray-700 text-base sm:text-lg leading-relaxed space-y-3">
-          <li className="flex items-start sm:items-center gap-2">
-            ✅{" "}
-            <span>
+        <ul className="text-gray-700 text-base sm:text-lg leading-loose space-y-4">
+          <li className="flex items-start gap-2">
+            <span className="inline-block">
               24-hour{" "}
-              <span className="font-semibold text-gray-900">
+              <span className="font-semibold text-gray-900 inline-block">
                 on-site service
               </span>{" "}
               with fast response.
             </span>
           </li>
-          <li className="flex items-start sm:items-center gap-2">
-            ✅{" "}
-            <span>
+          <li className="flex items-start gap-2">
+            <span className="inline-block">
               Two-year warranty with{" "}
-              <span className="font-semibold text-gray-900">
+              <span className="font-semibold text-gray-900 inline-block">
                 complimentary maintenance
               </span>
               .

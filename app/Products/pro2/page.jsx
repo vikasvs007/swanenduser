@@ -1,5 +1,5 @@
 "use client";
-import  Navbar  from "@/app/Components/NavbarLinks/Navbar";
+import  Navbar from "@/app/Components/NavbarLinks/Navbar";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -48,7 +48,7 @@ const Page = () => {
           animate="visible"
           variants={fadeIn}
         >
-          Swan 2 Chute 128 Channels
+         Swan 2 Chute (128 Channels)
         </motion.h1>
 
         {/* Main Machine Image */}
@@ -60,7 +60,7 @@ const Page = () => {
         >
           <div className="relative w-full max-w-xs sm:max-w-md md:w-[500px] lg:w-[600px] xl:w-[700px] transform hover:scale-105 transition duration-300">
             <Image
-              src="/img1.jpeg"
+              src="/img3.Jpg"
               alt="M2 Machine"
               width={800}
               height={600}
@@ -131,8 +131,8 @@ const Page = () => {
                   {/* Logo */}
                   <div className="flex justify-center lg:justify-start mb-4">
                     <Image
-                      src="/img1.jpeg"
-                      alt="Meyer Logo"
+                      src="/img3.Jpg"
+                      alt="Product Logo"
                       width={250}
                       height={40}
                     />

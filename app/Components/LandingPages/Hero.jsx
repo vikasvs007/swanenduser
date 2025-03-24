@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Navbar } from "../NavbarLinks/Navbar";
+import  Navbar  from "../NavbarLinks/Navbar";
 import { motion } from "framer-motion";
 
 const Hero = () => {
@@ -64,12 +64,12 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
               viewport={{ once: true }} // Prevents re-rendering glitch
-              className="flex  items-center gap-3 md:gap-5 mt-4 md:py-10 whitespace-nowrap"
+              className="flex flex-col md:flex-row items-center gap-3 md:gap-5 mt-4 md:py-10 whitespace-nowrap text-center"
             >
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="bg-[#a2e194] py-3 px-5 rounded-2xl text-black font-semibold transition"
+                className="bg-[#a2e194] py-3 px-5 rounded-2xl text-black font-semibold transition w-full md:w-auto"
               >
                 Get in Touch
               </motion.button>
@@ -77,9 +77,9 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="bg-[#a2e194] py-3 px-5 rounded-2xl text-black font-semibold transition"
+                className="bg-[#a2e194] py-3 px-5 rounded-2xl text-black font-semibold transition w-full md:w-auto"
               >
-                Download brochure
+                Download Brochure
               </motion.button>
             </motion.div>
           </div>

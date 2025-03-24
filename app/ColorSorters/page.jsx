@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Navbar } from "../Components/NavbarLinks/Navbar";
+import  Navbar  from "../Components/NavbarLinks/Navbar";
 
 const products = [
   {

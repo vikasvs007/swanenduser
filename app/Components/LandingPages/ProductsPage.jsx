@@ -15,7 +15,7 @@ const products = [
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img3.Jpg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
+    link: "/Products/pro2",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const products = [
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img6.jpeg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
+    link: "/Products/pro3",
   },
   {
     id: 4,
@@ -40,30 +40,31 @@ const products = [
       "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
     image: "/img5.jpeg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
-  }, {
+    link: "/Products/pro4",
+  },
+   {
     id: 5,
     name: "Swan 1 Chute (64 Channels)",
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img4.jpeg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
+    link: "/Products/pro5",
   },
-  {
-    id: 6,
-    name: "Swan 8 Chute (512 Channels)",
-    description: "Premium sorting technology for precision sorting.",
-    image: "/img6.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro1",
-  },
+  // {
+  //   id: 6,
+  //   name: "Swan 8 Chute (512 Channels)",
+  //   description: "Premium sorting technology for precision sorting.",
+  //   image: "/img6.jpeg",
+  //   video: "/Video1.mp4",
+  //   link: "/Products/pro6",
+  // },
   {
     id: 7,
     name: "Swan 5 Chute (320 Channels)",
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img7.jpeg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
+    link: "/Products/pro6",
   },
   {
     id: 8,
@@ -72,7 +73,7 @@ const products = [
       "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
     image: "/img8.jpeg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
+    link: "/Products/pro7",
   }, 
   {
     id: 9,
@@ -80,7 +81,7 @@ const products = [
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img9.jpeg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
+    link: "/Products/pro8",
   },
   {
     id: 10,
@@ -88,7 +89,7 @@ const products = [
     description: "Premium sorting technology for precision sorting.",
     image: "/img10.jpeg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
+    link: "/Products/pro9",
   },
   {
     id: 11,
@@ -96,7 +97,7 @@ const products = [
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img11.jpeg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
+    link: "/Products/pro10",
   },
   {
     id: 12,
@@ -105,7 +106,7 @@ const products = [
       "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
     image: "/img12.jpeg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
+    link: "/Products/pro11",
   },
   {
     id: 11,
@@ -113,7 +114,7 @@ const products = [
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img13.jpeg",
     video: "/Video1.mp4",
-    link: "/Products/pro1",
+    link: "/Products/pro12",
   },
   
 ];

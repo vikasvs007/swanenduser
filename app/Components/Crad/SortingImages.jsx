@@ -8,9 +8,24 @@ const categories = {
     reject: "/sorting-material-Beans-reject.webp",
   },
   Coffee: {
-    input: "/Coffee-Inpuut.webp",
+    input: "/Coffee-Accept.webp",
     accept: "/Coffee-Accept.webp",
     reject: "/Coffee-Reject.webp",
+  },
+  Nuts: {
+    input: "/sorting-material-Almonds-Input.webp",
+    accept: "/sorting-material-Almonds-Accept.webp",
+    reject: "/sorting-material-Almonds-Reject.webp",
+  },
+  Rice: {
+    input: "/sorting-material-Rice-Input.webp",
+    accept: "/sorting-material-Rice-Accept.webp",
+    reject: "/sorting-material-Rice-reject.webp",
+  },
+  "Seed & Grains": {
+    input: "/sorting-material-Mustard-seeds-Imput.webp",
+    accept: "/sorting-material-Mustard-seeds-Accept.webp",
+    reject: "/sorting-material-Mustard-seeds-Reject.webp",
   },
 };
 
@@ -19,7 +34,7 @@ export default function SortingImages() {
 
   return (
     <motion.div
-      className="w-full max-w-5xl mt-12 bg-white rounded-xl"
+      className="w-full max-w-5xl mt-12 bg-white rounded-xl px-4 md:px-0"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -40,7 +55,7 @@ export default function SortingImages() {
 
       {/* Category Buttons */}
       <motion.div
-        className="flex justify-center space-x-3 mb-10"
+        className="flex flex-col md:flex-row md:flex-wrap justify-center space-y-2 md:space-y-0 md:space-x-3 mb-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -50,7 +65,7 @@ export default function SortingImages() {
           <motion.button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+            className={`w-full md:w-auto px-3 md:px-4 py-2 rounded-lg text-gray-800 md:text-sm font-semibold transition-all text-center ${
               selectedCategory === category
                 ? "bg-green-600 text-white"
                 : "bg-gray-300 text-gray-700 hover:bg-gray-400"
@@ -64,7 +79,7 @@ export default function SortingImages() {
 
       {/* Images Grid */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
         initial="hidden"
         whileInView="visible"
         transition={{ staggerChildren: 0.2 }}
@@ -73,14 +88,14 @@ export default function SortingImages() {
         {["input", "accept", "reject"].map((type) => (
           <motion.div
             key={type}
-            className="flex flex-col items-center bg-gray-100 p-4 rounded-lg hover:shadow-xl transition-all"
+            className="flex flex-col items-center bg-gray-100 p-3 md:p-4 rounded-lg hover:shadow-xl transition-all"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
             <p
-              className={`text-lg font-bold mb-2 ${
+              className={`text-sm md:text-lg font-bold mb-2 ${
                 type === "input"
                   ? "text-blue-600"
                   : type === "accept"
@@ -93,7 +108,7 @@ export default function SortingImages() {
             <img
               src={categories[selectedCategory][type]}
               alt={`${type} image`}
-              className="w-full h-56 object-cover rounded-lg"
+              className="w-full h-48 md:h-56 object-cover rounded-lg"
             />
           </motion.div>
         ))}

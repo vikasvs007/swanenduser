@@ -8,7 +8,7 @@ import { Menu, X ,Search} from "lucide-react";
 import SwanSortlogo from "@/public/SwanSorter_Logo-02.png";
 import GoogleTranslateDropdown from "../Google_Translator/google";
 
-export const Navbar = () => {
+ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -34,7 +34,7 @@ export const Navbar = () => {
           <Link href="/" className="hover:text-gray-300 transition">Home</Link>
           <Link href="/solutions" className="hover:text-gray-300 transition">Solutions</Link>
           <Link href="/company" className="hover:text-gray-300 transition">Company</Link>
-          <Link href="/news" className="hover:text-gray-300 transition">News</Link>
+          <Link href="/Blogs" className="hover:text-gray-300 transition">Blogs</Link>
           <Link href="/contact" className="hover:text-gray-300 transition">Contact</Link>
           <Link href="/ColorSorters" className="hover:text-gray-300 transition">Color Sorters</Link>
           
@@ -61,7 +61,7 @@ export const Navbar = () => {
           <Link href="/" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link href="/solutions" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Solutions</Link>
           <Link href="/company" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Company</Link>
-          <Link href="/news" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>News</Link>
+          <Link href="/Blogs" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Blogs</Link>
           <Link href="/contact" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Contact</Link>
           <Link href="/ColorSorters" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Color Sorters</Link>
           
@@ -74,3 +74,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar;

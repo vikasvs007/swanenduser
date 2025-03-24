@@ -11,6 +11,7 @@ import ChatBot from "./ChatBot/ChatBot";
 import OurAims from "./LandingPages/OurAims";
 import TeamSection from "./LandingPages/TeamSection";
 import BusinessGrowthBanner from "./LandingPages/BusinessGrowthBanner";
+import Latestnews from "./LandingPages/Latestnews";
 
 
 
@@ -19,6 +20,7 @@ const Main = () => {
     <div className="w-full h-auto overflow-hidden ">      
       <Hero />
       <TechnologyPage />
+      <Latestnews/>
       <OurAims />
       <BusinessGrowthBanner />
       <ProductsPage />
