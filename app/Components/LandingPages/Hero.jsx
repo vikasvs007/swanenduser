@@ -1,90 +1,75 @@
 "use client";
 import Image from "next/image";
-import  Navbar  from "../NavbarLinks/Navbar";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import Navbar from "../NavbarLinks/Navbar";
+
+const desktopImages = ["/LandingPage1.jpeg", "/LandingPage2.jpeg"]; // Images for desktop
+const mobileImages = ["/mob_Landing.jpeg", "/MobRes2.jpeg"]; // Separate images for mobile
 
 const Hero = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => setIsMobile(window.innerWidth < 768);
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  useEffect(() => {
+    const imagesArray = isMobile ? mobileImages : desktopImages;
+
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % imagesArray.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isMobile]); // ✅ Only re-run when screen size changes
+
   return (
-    <div className="w-full h-screen relative overflow-hidden">
-      {/* Navbar Positioned Absolutely */}
+    <div className="w-full h-screen relative overflow-hidden text-white">
+      {/* Navbar */}
       <div className="absolute top-0 left-0 w-full z-10">
         <Navbar />
       </div>
 
-      {/* Background Image - Fixed Next.js 13+ Compatibility */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
-        className="absolute inset-0 md:w-full md:h-full md:left-0"
-      >
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full">
         <Image
-          // autoPlay
-          // loop
-          // muted
-          // playsInline
-          src="/LandingPage.jpeg"
+          src={isMobile ? mobileImages[currentImage] : desktopImages[currentImage]}
           alt="Landing Hero Image"
           fill
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full transition-opacity duration-1000 ease-in-out"
         />
-      </motion.div>
+      </div>
 
-      {/* Content Section - Appears from Bottom */}
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="md:w-[85%] md:h-[80vh] min-h-[400px] relative md:top-20 top-48 m-auto flex flex-wrap items-center"
+      {/* Content Section */}
+      <div
+        className={`absolute top-3/6 transform -translate-y-1/2 w-[90%] sm:max-w-[600px] p-6 sm:p-10 
+        bg-black/50 rounded-xl shadow-xl border border-white/20 text-center sm:text-left
+        ${isMobile ? "left-1/2 -translate-x-1/2" : "left-[5%] sm:left-[10%]"}`}
       >
-        {/* Left Section */}
-        <div className="md:w-[50%] w-[100%] md:pl-10 px-5">
-          <div className="text-white">
-            <motion.h1
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="font-bold text-3xl sm:text-3xl md:text-5xl"
-            >
-              Grain by grain <span className="text-[#a2e194]">Perfection</span>{" "}
-              Redefined.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              className="md:text-gray-300 text-white sm:text-xl mt-4"
-            >
-              Experience the next level of sorting technology with unmatched
-              efficiency and accuracy.
-            </motion.p>
+        {/* Title */}
+        <h1 className="text-left font-extrabold text-4xl sm:text-4xl md:text-6xl tracking-wide leading-tight text-white">
+          Grain by grain <span className="text-[#25a558]">perfection</span> redefined.
+        </h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              viewport={{ once: true }} // Prevents re-rendering glitch
-              className="flex flex-col md:flex-row items-center gap-3 md:gap-5 mt-4 md:py-10 whitespace-nowrap text-center"
-            >
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="bg-[#a2e194] py-3 px-5 rounded-2xl text-black font-semibold transition w-full md:w-auto"
-              >
-                Get in Touch
-              </motion.button>
+        {/* Description */}
+        <p className="text-gray-200 text-left font- sm:text-lg md:text-xl leading-relaxed mt-4">
+          Experience the next level of sorting technology with unmatched efficiency and accuracy.
+        </p>
 
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="bg-[#a2e194] py-3 px-5 rounded-2xl text-black font-semibold transition w-full md:w-auto"
-              >
-                Download Brochure
-              </motion.button>
-            </motion.div>
-          </div>
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center sm:justify-start items-center gap-4 sm:gap-6 mt-6">
+          <button className="bg-[#25a558] py-3 px-6 rounded-full text-white font-semibold shadow-lg transition hover:bg-[#1e8545] hover:shadow-2xl w-full sm:w-auto">
+            Get in Touch
+          </button>
+          <button className="bg-[#25a558] py-3 px-6 rounded-full text-white font-semibold shadow-lg transition hover:bg-[#1e8545] hover:shadow-2xl w-full sm:w-auto">
+            Download Brochure
+          </button>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

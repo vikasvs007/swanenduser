@@ -14,7 +14,6 @@ const images = [
   "/img11.jpeg",
   "/img12.jpeg",
   "/img13.jpeg",
-  "/img14.jpeg",
 ];
 
 const AboutUsPage = () => {

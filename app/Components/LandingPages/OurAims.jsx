@@ -4,12 +4,8 @@ import { motion } from "framer-motion";
 
 const timelineData = [
   {
-    year: "2014",
-    text: "Swan Sorter Systems Pvt Ltd established.\nMonochrome camera-based sorter machine released.",
-  },
-  {
-    year: "2016",
-    text: "RGB Colour camera sensor-based sorter machine introduced.",
+    year: "2022",
+    text: "New innovation in color sorter technology.",
     highlight: true,
   },
   {
@@ -17,9 +13,13 @@ const timelineData = [
     text: "Upgraded to HD RGB Colour sensor-based sorter machine and FPGA-based processor systems.",
   },
   {
-    year: "2022",
-    text: "New innovation in color sorter technology.",
+    year: "2016",
+    text: "RGB Colour camera sensor-based sorter machine introduced.",
     highlight: true,
+  },
+  {
+    year: "2014",
+    text: "Swan Sorter Systems Pvt Ltd established.\nMonochrome camera-based sorter machine released.",
   },
 ];
 

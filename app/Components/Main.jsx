@@ -12,6 +12,7 @@ import OurAims from "./LandingPages/OurAims";
 import TeamSection from "./LandingPages/TeamSection";
 import BusinessGrowthBanner from "./LandingPages/BusinessGrowthBanner";
 import Latestnews from "./LandingPages/Latestnews";
+import FAQSection from "./LandingPages/FAQsection";
 
 
 
@@ -26,6 +27,7 @@ const Main = () => {
       <ProductsPage />
       <AboutUsPage />
       <TeamSection />
+      <FAQSection/>
       <Gallery />
       <Footerpage />
       <ChatBot />

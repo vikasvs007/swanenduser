@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Calendar, Tag, User } from "lucide-react";
 import Navbar from "../Components/NavbarLinks/Navbar";
+import Footerpage from "../Components/LandingPages/Footerpage";
 
 const fadeIn = {
   hidden: { opacity: 0, y: -20 },
@@ -166,6 +167,7 @@ const page = () => {
           ))}
         </div>
       </div>
+      <Footerpage/>
     </div>
   );
 };

@@ -32,8 +32,8 @@ import GoogleTranslateDropdown from "../Google_Translator/google";
           className="hidden md:flex gap-6  text-lg font-semibold items-center"
         >
           <Link href="/" className="hover:text-gray-300 transition">Home</Link>
-          <Link href="/solutions" className="hover:text-gray-300 transition">Solutions</Link>
-          <Link href="/company" className="hover:text-gray-300 transition">Company</Link>
+          <Link href="/Solutions" className="hover:text-gray-300 transition">Solutions</Link>
+          <Link href="/Company" className="hover:text-gray-300 transition">Company</Link>
           <Link href="/Blogs" className="hover:text-gray-300 transition">Blogs</Link>
           <Link href="/contact" className="hover:text-gray-300 transition">Contact</Link>
           <Link href="/ColorSorters" className="hover:text-gray-300 transition">Color Sorters</Link>
@@ -59,8 +59,8 @@ import GoogleTranslateDropdown from "../Google_Translator/google";
           className="md:hidden flex flex-col bg-gradient-to-r from-[#1f3d3b] to-[#2b4a48] text-white mt-2 rounded-lg shadow-md p-4 space-y-4"
         >
           <Link href="/" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/solutions" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Solutions</Link>
-          <Link href="/company" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Company</Link>
+          <Link href="/Solutions" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Solutions</Link>
+          <Link href="/Company" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Company</Link>
           <Link href="/Blogs" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Blogs</Link>
           <Link href="/contact" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Contact</Link>
           <Link href="/ColorSorters" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Color Sorters</Link>

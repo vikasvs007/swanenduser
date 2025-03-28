@@ -13,12 +13,6 @@ const teamMembers = [
     des: "To become the leader in manufacturing of color sorters as per the international standards and generate global demand of color sorter machine.",
     image: "https://images.unsplash.com/photo-1734657420987-06e7f337d016?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
-  {
-    name: "Kiran Kumar",
-    role: "Chief Technical Officer",
-    des: "To become the leader in manufacturing of color sorters as per the international standards and generate global demand of color sorter machine.",
-    image: "https://images.unsplash.com/photo-1734657420987-06e7f337d016?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
 ];
 
 export default function TeamSection() {
@@ -29,11 +23,11 @@ export default function TeamSection() {
       </h2>
 
       {/* Scrollable on mobile, grid on larger screens */}
-      <div className="flex flex-wrap md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible snap-x px-4 pb-4">
+      <div className="flex md:w-[60%] m-auto flex-wrap md:grid md:grid-cols-2 gap-6 overflow-x-auto md:overflow-visible snap-x px-4 pb-4">
         {teamMembers.map((member, index) => (
           <div
             key={index}
-            className="relative bg-white p-6 rounded-2xl shadow-lg w-11/12 sm:w-[70%] md:w-full mx-auto snap-center"
+            className="relative bg-white p-6 rounded-2xl shadow-lg w-[90%] sm:w-[70%] md:w-full mx-auto snap-center"
           >
             <img
               src={member.image}
