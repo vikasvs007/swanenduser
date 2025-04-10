@@ -71,7 +71,10 @@ const Footerpage = () => {
                 { label: "Color Sorter", href: "/ColorSorters" },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-gray-600 hover:text-gray-900">
+                  <Link
+                    href={item.href}
+                    className="text-gray-600 hover:text-gray-900"
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -87,13 +90,19 @@ const Footerpage = () => {
           >
             <h3 className="text-lg font-semibold mb-4">Important Links</h3>
             <ul className="space-y-3">
-              {["Media & Downloads", "Press Release", "Contact Us", "Download Brochures"].map((path) => (
-                <li key={path}>
+              {[
+                { name: "Media & Downloads", href: "/media-downloads" },
+                // { name: "Press Release", href: "/press-release" },
+                { name: "Contact Us", href: "/contact" },
+                { name: "Download Brochures", href: "/PdfFolder/SwanSorter-Brochure_V2 -Buyers (Final).pdf" },
+              ].map((link) => (
+                <li key={link.name}>
                   <Link
-                    href={`/${path.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={link.href}
+                    download
                     className="text-gray-600 hover:text-gray-900"
                   >
-                    {path}
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -109,16 +118,18 @@ const Footerpage = () => {
         transition={{ duration: 0.6, delay: 1 }}
         className="mt-6 flex justify-center space-x-6"
       >
-        {[FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram].map((Icon, index) => (
-          <motion.a
-            key={index}
-            href="#"
-            whileHover={{ scale: 1.2 }}
-            className="p-3 rounded-full bg-gray-200 hover:bg-gradient-to-r from-green-400 to-blue-400 text-gray-800 hover:text-white transition duration-300"
-          >
-            <Icon className="w-5 h-5" />
-          </motion.a>
-        ))}
+        {[FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram].map(
+          (Icon, index) => (
+            <motion.a
+              key={index}
+              href="#"
+              whileHover={{ scale: 1.2 }}
+              className="p-3 rounded-full bg-gray-200 hover:bg-gradient-to-r from-green-400 to-blue-400 text-gray-800 hover:text-white transition duration-300"
+            >
+              <Icon className="w-5 h-5" />
+            </motion.a>
+          )
+        )}
       </motion.div>
 
       {/* Footer Bottom */}
@@ -128,7 +139,9 @@ const Footerpage = () => {
         transition={{ duration: 0.6, delay: 1.2 }}
         className="mt-8 border-t border-gray-200 pt-6 text-center"
       >
-        <p className="text-gray-600">© 2022, Swan Sorter System Pvt. Ltd. / All rights reserved.</p>
+        <p className="text-gray-600">
+          © 2022, Swan Sorter System Pvt. Ltd. / All rights reserved.
+        </p>
         <div className="mt-2 flex flex-wrap justify-center space-x-4">
           {["Privacy", "Terms", "Sitemap"].map((path) => (
             <Link

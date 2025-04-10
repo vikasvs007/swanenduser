@@ -2,16 +2,15 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import Navbar from "../Components/NavbarLinks/Navbar";
 import Footerpage from "../Components/LandingPages/Footerpage";
 
 const products = [
   {
-    name: "Swan Swift",
-    image: "/img1.jpeg",
+    name: "Swan chute 64 channel",
+    image: "/img1.Jpeg",
     description:
-      "Experience next-level precision with the Swan RGB Tri Chromatic CCD Camera. This cutting-edge color sorter machine processes images with unmatched accuracy, ensuring high-quality sorting for your products.",
+      "Experience next-level precision with the Swan RGB Tri Chromatic CCD Camera...",
     features: [
       "5400* 3 pixels RGB CCD Camera Technology",
       "High power LED illumination",
@@ -20,12 +19,12 @@ const products = [
       "Stable sorter accuracy by improved collection efficiency",
     ],
     reverse: false,
+    brochureLink: "/PdfFolder/Industrial_Grain_Sorting.pdf",
   },
   {
-    name: "Eagle Vision",
+    name: " Swan 300 belt type ms frame",
     image: "/img2.jpeg",
-    description:
-      "We are well known as the reputed organization in this field of operation, engaged in manufacturing a wide array of excellent quality Dal Color Sorter Machine. Swan RGB Tri Chromatic CCD Camera and image processing technology can process image parameters ever faster",
+    description: "We are well known as the reputed organization...",
     features: [
       "pixels RGB CCD Camera Technology",
       "Double side viewing incorporated",
@@ -33,25 +32,25 @@ const products = [
       "Smart Ejector Technology",
     ],
     reverse: true,
+    brochureLink: "/PdfFolder/Industrial_Grain_Sorting.pdf",
   },
   {
-    name: "Eagle Vision",
-    image: "/img4.jpeg",
-    description:
-      "We are well known as the reputed organization in this field of operation, engaged in manufacturing a wide array of excellent quality Dal Color Sorter Machine. Swan RGB Tri Chromatic CCD Camera and image processing technology can process image parameters ever faster.",
+    name: " Swan 1 chute 64 channel ms/ss frame",
+    image: "/img3.jpg",
+    description: "Introducing Falcon Max – maximum performance, maximum precision.",
     features: [
-      "Ultra-fast sorting speed",
-      "AI-powered defect detection",
-      "Multi-material processing capability",
-      "Intuitive touch-screen interface",
+      "AI-enhanced color sorting",
+      "Low energy consumption",
+      "Built-in IoT diagnostics",
+      "Modular conveyor system",
     ],
     reverse: false,
+    brochureLink: "/PdfFolder/SWAN_RGB_AI_8Chute_512.pdf",
   },
   {
-    name: "Eagle Vision",
+    name: "Swan 4 chute 128 channel",
     image: "/img4.jpeg",
-    description:
-      "We are well known as the reputed organization in this field of operation, engaged in manufacturing a wide array of excellent quality Dal Color Sorter Machine. Swan RGB Tri Chromatic CCD Camera and image processing technology can process image parameters ever faster",
+    description: "We are well known as the reputed organization...",
     features: [
       "Ultra-fast sorting speed",
       "AI-powered defect detection",
@@ -59,6 +58,124 @@ const products = [
       "Intuitive touch-screen interface",
     ],
     reverse: true,
+    brochureLink: "/PdfFolder/SWAN_RGB_AI_5Chute_320.pdf",
+  },
+  {
+    name: " Swan 2 chute 128 channel box type",
+    image: "/img5.jpeg",
+    description: "Compact size with robust sorting capabilities for small-scale operations.",
+    features: [
+      "Compact design",
+      "Touch screen control",
+      "Easy maintenance access",
+      "Affordable pricing for startups",
+    ],
+    reverse: false,
+    brochureLink: "/PdfFolder/SwiftMini_Brochure.pdf",
+  },
+  {
+    name: " Swan 4 chute 128 channel",
+    image: "/img6.jpeg",
+    description: "Extended capacity for larger grains and multi-sorting functions.",
+    features: [
+      "Multi-mode sorting",
+      "Grain-type auto detection",
+      "Smart data logging",
+      "Auto calibration feature",
+    ],
+    reverse: true,
+    brochureLink: "/PdfFolder/SWAN_RGB_AI_3Chute.pdf",
+  },
+  {
+    name: " Swan 3 chute 192 channel",
+    image: "/img7.jpeg",
+    description: "Advanced spectral imaging for the most precise separation.",
+    features: [
+      "Near-infrared spectrum analysis",
+      "AI-based contamination removal",
+      "Smart defect learning",
+      "4K touch panel interface",
+    ],
+    reverse: false,
+    brochureLink: "/PdfFolder/SpectraPro.pdf",
+  },
+  {
+    name: "Swan 8 chute 512 channel",
+    image: "/img8.jpeg",
+    description: "Flagship model built for ultra-speed industrial-scale operations.",
+    features: [
+      "8000px Ultra HD RGB camera",
+      "Industrial AI processor",
+      "Long lifespan ejectors",
+      "Dual cleaning system",
+    ],
+    reverse: true,
+    brochureLink: "/PdfFolder/SwanUltra_Brochure.pdf",
+  },
+  // {
+  //   name: "Swan Pro",
+  //   image: "/img9.jpeg",
+  //   description: "Advanced spectral imaging for the most precise separation.",
+  //   features: [
+  //     "Near-infrared spectrum analysis",
+  //     "AI-based contamination removal",
+  //     "Smart defect learning",
+  //     "4K touch panel interface",
+  //   ],
+  //   reverse: false,
+  //   brochureLink: "/PdfFolder/Swan_RGB_AI_1Chute.pdf",
+  // },
+  {
+    name: "Swan 5 chute 320 channel",
+    image: "/img10.jpeg",
+    description: "Flagship model built for ultra-speed industrial-scale operations.",
+    features: [
+      "8000px Ultra HD RGB camera",
+      "Industrial AI processor",
+      "Long lifespan ejectors",
+      "Dual cleaning system",
+    ],
+    reverse: false,
+    brochureLink: "/PdfFolder/SWAN_RGB_AI_10Chute_640.pdf",
+  },
+  {
+    name: " Swan 1 chute 64 channel ",
+    image: "/img11.jpeg",
+    description: "Advanced spectral imaging for the most precise separation.",
+    features: [
+      "Near-infrared spectrum analysis",
+      "AI-based contamination removal",
+      "Smart defect learning",
+      "4K touch panel interface",
+    ],
+    reverse: true,
+    brochureLink: "/PdfFolder/SpectraPro.pdf",
+  },
+  {
+    name: "Swan 600Mm belt type machine",
+    image: "/img12.jpeg",
+    description: "Flagship model built for ultra-speed industrial-scale operations.",
+    features: [
+      "8000px Ultra HD RGB camera",
+      "Industrial AI processor",
+      "Long lifespan ejectors",
+      "Dual cleaning system",
+    ],
+    reverse: false,
+    brochureLink: "/PdfFolder/SwanUltra_Brochure.pdf",
+  },
+  {
+    name: "Swan RGB AI 10chute 640 channel",
+    image: "/img13.jpeg",
+    description: "Advanced spectral imaging for the most precise separation.",
+    features: [
+      "Near-infrared spectrum analysis",
+      "AI-based contamination removal",
+      "Smart defect learning",
+      "4K touch panel interface",
+    ],
+    reverse: true,
+    brochureLink: "/PdfFolder/SpectraPro.pdf",
   },
 ];
 
@@ -69,65 +186,27 @@ const Page = () => {
         <div className="rounded-b-lg">
           <Navbar className="w-full max-w-7xl mx-auto px-6" />
         </div>
-        <div className="max-w-6xl mx-auto text-center relative py-6">
-          {/* Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-200 via-indigo-200 to-transparent opacity-20 rounded-lg blur-xl"></div>
-
-          {/* Main Heading */}
-          <motion.h2
-            className="text-gray-900 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-2 relative"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            Elevate Precision with{" "}
-            <motion.span
-              className="text-[#8E54FF] relative"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-            >
-              Smart Sorting
-              {/* Underline Effect */}
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-[#8E54FF] rounded-full scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"></span>
-            </motion.span>
-          </motion.h2>
-
-          {/* Subheading */}
-          <motion.p
-            className="text-gray-600 text-lg sm:text-xl font-medium relative"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            Revolutionizing sorting technology for a smarter tomorrow.
-          </motion.p>
-        </div>
 
         <div className="space-y-16 max-w-6xl mx-auto">
-          {products.map((product, index) => {
-            const { ref, inView } = useInView({
-              triggerOnce: true,
-              threshold: 0.2,
-            });
-
-            return (
+          {products.map((product, index) => (
+            <motion.div
+              key={index}
+              className={`grid md:grid-cols-2 gap-12 items-stretch ${
+                product.reverse ? "md:flex-row-reverse" : ""
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.4 }}
+            >
+              {/* Content Section */}
               <motion.div
-                key={index}
-                ref={ref}
-                className={`grid md:grid-cols-2 gap-12 items-center ${
-                  product.reverse ? "md:flex-row-reverse" : ""
-                }`}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="flex flex-col justify-between p-8 bg-white rounded-lg shadow-lg relative overflow-hidden h-full"
+                whileHover={{ scale: 1.02 }}
               >
-                {/* Content Section */}
-                <motion.div
-                  className="p-8 bg-white rounded-lg shadow-lg relative overflow-hidden"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-transparent opacity-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-transparent opacity-10 pointer-events-none"></div>
+
+                <div className="relative z-10">
                   <h3 className="text-3xl font-extrabold text-gray-900 mb-6 border-b-2 border-[#8E54FF] pb-2">
                     {product.name}
                   </h3>
@@ -146,37 +225,40 @@ const Page = () => {
                     ))}
                   </ul>
 
-                  {/* Animated Button */}
-                  <motion.button
-                    className="mt-4 px-6 py-3 bg-[#8E54FF] text-white font-semibold rounded-lg shadow-md transition-all hover:bg-[#7A45E6] hover:shadow-lg"
+                  <motion.a
+                    href={product.brochureLink}
+                    download
+                    className="inline-block mt-4 px-6 py-3 bg-[#8E54FF] text-white font-semibold rounded-lg shadow-md transition-all hover:bg-[#7A45E6] hover:shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     Download Brochure
-                  </motion.button>
-                </motion.div>
-
-                {/* Image Section */}
-                <motion.div
-                  className={`relative h-full flex justify-center ${
-                    product.reverse ? "order-first" : ""
-                  }`}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.3 }}
-                >
-                  <motion.img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full rounded-lg shadow-2xl object-center"
-                    whileHover={{ scale: 1.05 }}
-                  />
-                </motion.div>
+                  </motion.a>
+                </div>
               </motion.div>
-            );
-          })}
+
+              {/* Image Section */}
+              <motion.div
+                className={`relative h-full flex justify-center items-center ${
+                  product.reverse ? "order-first" : ""
+                }`}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.4 }}
+              >
+                <motion.img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover rounded-lg shadow-2xl max-h-[500px]"
+                  whileHover={{ scale: 1.05 }}
+                />
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
       </section>
+
       <div className="py-10">
         <Footerpage />
       </div>

@@ -147,14 +147,7 @@ const Page = () => {
                   </p>
 
                   {/* CTA Buttons */}
-                  <div className="flex flex-col sm:flex-row items-center lg:items-start space-y-2 sm:space-y-0 sm:space-x-3">
-                    <motion.button
-                      className="bg-green-500 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-green-600 transition"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      Send Inquiry
-                    </motion.button>
-                  </div>
+            
                 </motion.div>
               </div>
             </motion.div>

@@ -7,6 +7,7 @@ import Navbar from "../Components/NavbarLinks/Navbar";
 import ContactForm from "../Components/Crad/ContactForm";
 import Footerpage from "../Components/LandingPages/Footerpage";
 
+// ✅ Your actual solutions array
 const solutions = [
   {
     id: "agriculture",
@@ -17,94 +18,296 @@ const solutions = [
       {
         name: "Wheat",
         images: [
-          { src: "/photo-1574323347407-f5e1ad6d020b.avif", title: "Wheat Quality Check" },
-          { src: "/premium_photo-1726862459894-aca62bf8a756.avif", title: "Wheat Sorting" },
-          { src: "/photo-1507311036505-05669fc503cb.avif", title: "Wheat Processing" },
-          { src: "/photo-1574323347407-f5e1ad6d020b.avif", title: "Wheat Packaging" },
-          { src: "/photo-1574323347407-f5e1ad6d020b.avif", title: "Wheat Storage" },
+          {
+            src: "/photo-1574323347407-f5e1ad6d020b.avif",
+            title: "High-Quality Wheat",
+          },
+          {
+            src: "/premium_photo-1726862459894-aca62bf8a756.avif",
+            title: "Wheat Sorting ",
+          },
+          {
+            src: "/photo-1574323347407-f5e1ad6d020b.avif",
+            title: "Color Sorting",
+          },
+          {
+            src: "/photo-1646995892749-1bb82ae1679b.avif",
+            title: "Defect Sorting",
+          },
         ],
-      },
-      {
-        name: "Beans",
-        images: [
-          { src: "/photo-1580425922682-cd96db9af39d.avif", title: "Coffee Beans" },
-          { src: "/photo-1523312727315-7c6ae09c3d09.avif", title: "Red Beans" },
-          { src: "/photo-1594900799266-0e56587ba586.avif", title: "Mung Beans" },
-          { src: "/photo-1639843606783-b2f9c50a7468.avif", title: "Soya Beans " },
-          { src: "/photo-1575399872095-9363bf262e64.avif", title: "Peanut" },
-          { src: "/photo-1635843121634-3d071b6fb5d8.avif", title: "Chickpeas" },
+        recommended: [
+          {
+            image: "/img1.jpeg",
+            title: "Wheat Optical Sorter 5000",
+            description: "Precision sorting for wheat grains using AI-powered vision tech.",
+          },
+          {
+            image: "/img2.jpeg",
+            title: "Wheat Optical Sorter 5000",
+            description: "Precision sorting for wheat grains using AI-powered vision tech.",
+          },
+          {
+            image: "/img3.jpg",
+            title: "Wheat Optical Sorter 5000",
+            description: "Precision sorting for wheat grains using AI-powered vision tech.",
+          },
         ],
       },
       {
         name: "Rice",
         images: [
-          { src: "/photo-1613045935265-265ff612e0e2.avif", title: "Brown Rice" },
-          { src: "/photo-1612708074992-c7936e82c99b.avif", title: "Parboiled" },
-          { src: "/photo-1502825868325-37569f642e95.avif", title: "Black Rice" },
+          {
+            src: "/photo-1612708074992-c7936e82c99b.avif",
+            title: "Japonica Rice",
+          },
+          {
+            src: "/photo-1627482265910-5c0ff6bee088.avif",
+            title: "Unsorted Rice",
+          },
+          {
+            src: "/photo-1612708074992-c7936e82c99b.avif",
+            title: "Brown Rice",
+          },
+          {
+            src: "/premium_photo-1725899527843-0e0d1f2eda03.avif",
+            title: " Black Rice",
+          },
+        ],
+        recommended: [
+          {
+            image: "/img4.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+          {
+            image: "/img5.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+          {
+            image: "/img6.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+        ],
+      },
+      {
+        name: "Grain",
+        images: [
+          {
+            src: "/photo-1574323347407-f5e1ad6d020b (1).avif",
+            title: "Wheat",
+          },
+          {
+            src: "/photo-1626671502253-c50bad9325b1.avif",
+            title: "Barley",
+          },
+          {
+            src: "/photo-1543244550-7d81da8f3d2e.avif",
+            title: "Rye",
+          },
+          {
+            src: "/photo-1614373532018-92a75430a0da.avif",
+            title: "Oat",
+          },
+          {
+            src: "/photo-1613728913293-c99bb00ef39c.avif",
+            title: "Corn",
+          },
+          {
+            src: "/photo-1628317321557-68729bee6644.avif",
+            title: "Sesame",
+          },
+        ],
+        recommended: [
+          {
+            image: "/img7.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+          {
+            image: "/img8.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+          {
+            image: "/img9.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+        ],
+      },
+      {
+        name: "Beans",
+        images: [
+          {
+            src: "/photo-1580425922682-cd96db9af39d.avif",
+            title: "Coffee Bean",
+          },
+          {
+            src: "/photo-1523312727315-7c6ae09c3d09.avif",
+            title: "Red Bean",
+          },
+          {
+            src: "/photo-1575399872095-9363bf262e64.avif",
+            title: "Peanut",
+          },
+          {
+            src: "/photo-1644432757699-bb5a01e8fb0e.avif",
+            title: " Chickpeas",
+          },
+          {
+            src: "/photo-1615485500710-aa71300612aa.avif",
+            title: "Mung Bean",
+          },
+          {
+            src: "/photo-1596564823703-d28706a620e8.avif",
+            title: "Peas",
+          },
+          {
+            src: "/photo-1639843606783-b2f9c50a7468 (1).avif",
+            title: " SoyBean",
+          },
+        ],
+        recommended: [
+          {
+            image: "/img10.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+          {
+            image: "/img11.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+          {
+            image: "/img12.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
         ],
       },
       {
         name: "Nuts",
         images: [
-          { src: "/photo-1610073474647-7b0b80a2f31f.avif", title: " Cashews Nuts" },
-          { src: "/photo-1585536301151-2afb2fb1c960.avif", title: " Pine Nuts" },
-          { src: "/photo-1611529695554-fd3d13d1d819.avif", title: " Walnut Nuts" },
-          { src: "/photo-1508061235804-9436954f042f.avif", title: " Almonds" },
+          {
+            src: "/photo-1575399872095-9363bf262e64.avif",
+            title: "Peanut",
+          },
+          {
+            src: "/premium_photo-1674347954785-7604a0220776.avif",
+            title: "Watermelon Seeds",
+          },
+          {
+            src: "/photo-1575399872095-9363bf262e64.avif",
+            title: "Pine Nuts",
+          },
+          {
+            src: "/photo-1508061253366-f7da158b6d46.avif",
+            title: "Almonds",
+          },
+        ],
+        recommended: [
+          {
+            image: "/img1.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+          {
+            image: "/img11.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+          {
+            image: "/img8.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+        ],
+      },
+      {
+        name: "Seed",
+        images: [
+          {
+            src: "/photo-1612708074992-c7936e82c99b.avif",
+            title: "Rice Seeds",
+          },
+          {
+            src: "/photo-1663025293688-322e16b6cb66.avif",
+            title: "Wheat Seeds",
+          },
+          {
+            src: "/photo-1595259601874-5e6652e719d3.avif",
+            title: "Other Seeds",
+          },
+        ],
+        recommended: [
+          {
+            image: "/img10.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+          {
+            image: "/img11.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
+          {
+            image: "/img12.jpeg",
+            title: "Smart Rice Sorter X1",
+            description: "Optimized for various rice types with infrared detection.",
+          },
         ],
       },
     ],
   },
   {
-    id: "recycling",
-    title: "Recycling Resource Sorting",
-    image: "/photo-1606901302392-ca613ab6abb7.avif",
-    icon: "♻",
+    id: "plastic",
+    title: "Plastic Waste Sorting",
+    image: "/photo-1571727153934-b9e0059b7ab2.avif",
+    icon: "♻️",
     items: [
       {
-        name: "Plastic",
+        name: "Recycled Resources",
         images: [
-          { src: "/photo-1537084642907-629340c7e59c.avif", title: "Plastic Flakes" },
-          { src: "/photo-1571727153934-b9e0059b7ab2.avif", title: "Plastic Bottle" },
+          {
+            src: "/photo-1731613932524-923778f16b9d.avif",
+            title: "Plastic Flakes",
+          },
+          {
+            src: "/scrap-metal-pieces-laying-in-a-pile.webp",
+            title: "Wee Metal",
+          },
+          {
+            src: "/photo-1737998874193-8f6da6cad870.avif",
+            title: "glass",
+          },
+          {
+            src: "/photo-1567080586917-e6ab6aa0df85.avif",
+            title: "Wood",
+          },
         ],
-      },
-      {
-        name: "Paper",
-        images: [
-          { src: "/photo-1537084642907-629340c7e59c.avif", title: "Paper Sorting" },
-          { src: "/photo-1537084642907-629340c7e59c.avif", title: "Paper Recycling" },
+        recommended: [
+          {
+            image: "/img5.jpeg",
+            title: "PET Auto Sort Pro",
+            description: "Detects and separates PET plastics with high efficiency.",
+          },
+          {
+            image: "/img6.jpeg",
+            title: "PET Auto Sort Pro",
+            description: "Detects and separates PET plastics with high efficiency.",
+          },
+          {
+            image: "/img8.jpeg",
+            title: "PET Auto Sort Pro",
+            description: "Detects and separates PET plastics with high efficiency.",
+          },
         ],
       },
     ],
   },
-  {
-    id: "food-inspection ",
-    title: "Food Inspection Sorting",
-    image: "/photo-1466637574441-749b8f19452f.avif",
-    icon: "🍎",
-    items: [
-      {
-        name: "Fruits",
-        images: [
-          { src: "/photo-1464965911861-746a04b4bca6.avif", title: "Fruit Quality Check" },
-          { src: "/photo-1464965911861-746a04b4bca6.avif", title: "Fruit Sorting" },
-        ],
-      },
-      {
-        name: "Vegetables",
-        images: [
-          { src: "/photo-1464965911861-746a04b4bca6.avif", title: "Vegetable Inspection" },
-          { src: "/photo-1464965911861-746a04b4bca6.avif", title: "Vegetable Packaging" },
-        ],
-      },
-      {
-        name: "Meat",
-        images: [
-          { src: "/photo-1464965911861-746a04b4bca6.avif", title: "Meat Quality Control" },
-          { src: "/photo-1464965911861-746a04b4bca6.avif", title: "Meat Processing" },
-        ],
-      },
-    ],
-  }
+  // Add more categories as needed...
 ];
 
 const Page = () => {
@@ -113,9 +316,7 @@ const Page = () => {
 
   return (
     <div>
-      <div>
-        <Navbar />
-      </div>
+      <Navbar />
       <div className="max-w-7xl mx-auto p-6 text-gray-900">
         {/* Top Grid - Solution Selection */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -127,7 +328,7 @@ const Page = () => {
               }`}
               onClick={() => {
                 setSelectedSolution(sol);
-                setSelectedItem(sol.items[0]); // Reset to first item
+                setSelectedItem(sol.items[0]);
               }}
             >
               <Image
@@ -143,7 +344,7 @@ const Page = () => {
           ))}
         </div>
 
-        {/* Lower Section - Items List & Image Grid */}
+        {/* Lower Section */}
         <motion.div
           key={selectedSolution.id}
           initial={{ opacity: 0, y: 20 }}
@@ -151,11 +352,9 @@ const Page = () => {
           transition={{ duration: 0.5 }}
           className="mt-8 p-6 bg-gray-100 rounded-lg shadow-md flex flex-col md:flex-row gap-6"
         >
-          {/* Left Side - Items List */}
+          {/* Item Selector */}
           <div className="w-full md:w-1/3">
-            <h2 className="text-2xl font-bold mb-4">
-              {selectedSolution.title} Materials
-            </h2>
+            <h2 className="text-2xl font-bold mb-4">{selectedSolution.title} Materials</h2>
             <div className="space-y-2">
               {selectedSolution.items.map((item) => (
                 <button
@@ -173,11 +372,9 @@ const Page = () => {
             </div>
           </div>
 
-          {/* Right Side - Show All Images with Titles */}
+          {/* Images Section */}
           <div className="w-full md:w-2/3">
-            <h2 className="text-xl font-semibold mb-4">
-              {selectedItem.name} Images
-            </h2>
+            <h2 className="text-xl font-semibold mb-4">{selectedItem.name} Images</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {selectedItem.images.map((img, index) => (
                 <motion.div
@@ -192,7 +389,7 @@ const Page = () => {
                     alt={selectedItem.name}
                     width={250}
                     height={180}
-                    className="rounded-lg shadow-md"
+                    className="rounded-lg object-cover shadow-md h-34"
                   />
                   <p className="text-sm mt-2 font-medium">{img.title}</p>
                 </motion.div>
@@ -200,13 +397,49 @@ const Page = () => {
             </div>
           </div>
         </motion.div>
-      </div>
-      <div>
-        <div>
-          <h2 className="text-center text-5xl mt-8 font-bold text-[#8E54FF]">More Information ?</h2>
-         <ContactForm />
+
+        {/* Recommended Machines Section */}
+        <div className="mt-14">
+          <h2 className="text-4xl font-bold text-center mb-2 text-[#8E54FF]">
+            Recommended Sorting Machines
+          </h2>
+          <p className="text-center text-gray-600 mb-6">
+            Advanced technology built for precision and productivity — tailored for {selectedItem.name}.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {(selectedItem.recommended || []).map((rec, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="bg-white rounded-lg shadow-md p-4"
+              >
+                <Image
+                  src={rec.image}
+                  alt={rec.title}
+                  width={250}
+                  height={150}
+                  className="rounded-md h-72 object-contain m-auto"
+                />
+                <h3 className="mt-3 font-semibold text-lg">{rec.title}</h3>
+                <p className="text-sm text-gray-600 mt-1">{rec.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
-        <Footerpage/>
+      </div>
+
+      {/* Contact Form & Footer */}
+      <div>
+        <h2 className="text-center text-4xl sm:text-2xl md:text-5xl mt-6 sm:mt-8 font-bold">
+          <span className="inline-block bg-gradient-to-r from-green-400 to-blue-400 py-1 px-3 rounded-2xl text-white">
+            More Information?
+          </span>
+        </h2>
+        <ContactForm />
+        <Footerpage />
       </div>
     </div>
   );

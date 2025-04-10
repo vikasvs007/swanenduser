@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const BusinessGrowthBanner = () => {
   return (
@@ -28,7 +29,7 @@ const BusinessGrowthBanner = () => {
           whileTap={{ scale: 0.9 }}
           className="bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold text-sm sm:text-lg px-6 sm:px-8 py-2 sm:py-3 rounded-full shadow-md transition duration-300"
         >
-          Contact Us
+          <Link href="/contact">Contact Us</Link>
         </motion.button>
       </motion.div>
     </div>

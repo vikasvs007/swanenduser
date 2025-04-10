@@ -134,7 +134,7 @@ const OurAims = () => {
       <div className="w-full bg-gradient-to-r from-green-100 to-blue-100 py-3 my-3 shadow-lg rounded-lg">
         <Marquee speed={50} pauseOnHover={true} gradient={false}>
           <div className="text-center mx-10 text-green-700 font-extrabold text-3xl flex items-center gap-2">
-            🚀 1000+{" "}
+            🚀 1500+{" "}
             <span className="text-gray-700 font-medium text-xl">Sorter Machines Installed</span>
           </div>
           <div className="text-center mx-10 text-blue-700 font-extrabold text-3xl flex items-center gap-2">
@@ -142,7 +142,7 @@ const OurAims = () => {
             <span className="text-gray-700 font-medium text-xl">Of Combined Experience</span>
           </div>
           <div className="text-center mx-10 text-purple-700 font-extrabold text-3xl flex items-center gap-2">
-            👨‍💻 40+ Highly{" "}
+            👨‍💻 45+ Highly{" "}
             <span className="text-gray-700 font-medium text-xl">Qualified Team of Engineers</span>
           </div>
         </Marquee>
