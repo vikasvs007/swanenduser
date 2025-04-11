@@ -11,104 +11,104 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const products = [
   {
     id: 1,
-    name: "Swan 1 300 belt type ms frame",
+    name: "Swan 2 Chute (128 Channels) box type",
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img3.Jpg",
     video: "/Video1.mp4",
     link: "/Products/pro2",
-    orderLink:"/contact"
+    orderLink:"/Orders"
   },
-  {
-    id: 2,
-    name: "Swan 1 300 belt type ms frame",
-    description: "Premium sorting technology for precision sorting.",
-    image: "/img1.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro1",
-    orderLink:"/contact"
-  },
+  // {
+  //   id: 2,
+  //   name: "Swan 1 300 belt type ms frame",
+  //   description: "Premium sorting technology for precision sorting.",
+  //   image: "/img1.jpeg",
+  //   video: "/Video1.mp4",
+  //   link: "/Products/pro1",
+  //   orderLink:"/contact"
+  // },
   {
     id: 3,
-    name: "Swan 3 chute 192 channel",
+    name: "Swan 3 Chute (192 Channels)",
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img6.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro3",
-    orderLink:"/contact"
+    orderLink:"/Orders"
   },
-  {
-    id: 4,
-    name: "Swan  2 chute 128 channel box type",
-    description:
-      "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
-    image: "/img5.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro4",
-    orderLink:"/contact"
-  },
+  // {
+  //   id: 4,
+  //   name: "Swan  2 chute 128 channel box type",
+  //   description:
+  //     "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
+  //   image: "/img5.jpeg",
+  //   video: "/Video1.mp4",
+  //   link: "/Products/pro4",
+  //   orderLink:"/contact"
+  // },
   {
     id: 5,
-    name: "Swan 5 chute 320 channel",
+    name: "Swan 5 Chute (320 Channels)",
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img4.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro5",
-    orderLink:"/contact"
+    orderLink:"/Orders"
   },
-  {
-    id: 6,
-    name: "Swan 8 Chute (512 Channels)",
-    description: "Premium sorting technology for precision sorting.",
-    image: "/img2.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro6"
-  },
+  // {
+  //   id: 6,
+  //   name: "Swan 8 Chute (512 Channels)",
+  //   description: "Premium sorting technology for precision sorting.",
+  //   image: "/img2.jpeg",
+  //   video: "/Video1.mp4",
+  //   link: "/Products/pro6"
+  // },
   {
     id: 7,
-    name: "Swan 3 1 chute 64 channel",
+    name: "Swan 5 Chute (320 Channels)",
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img7.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro6",
-    orderLink:"/contact"
+    orderLink:"/Orders"
   },
   {
     id: 8,
-    name: "Swan 8 chute 512 channel",
+    name: "Swan 8 Chute (512 Channels)",
     description:
       "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
     image: "/img8.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro7",
-    orderLink:"/contact"
+    orderLink:"/Orders"
   }, 
   {
     id: 9,
-    name: "Swan 2 Chute (128 Channels)",
+    name: "Swan 1 Chute (64 Channels)",
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img9.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro8",
-    orderLink:"/contact"
+    orderLink:"/Orders"
   },
   {
     id: 10,
-    name: "Swan 5 chute 320 channel",
+    name: "Swan RGB AI 10 chute (640 channel)",
     description: "Premium sorting technology for precision sorting.",
     image: "/img10.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro9",
-    orderLink:"/contact"
+    orderLink:"/Orders"
   },
-  {
-    id: 11,
-    name: "Swan 1 chute 64 channel",
-    description: "Enhance sorting efficiency with AI-powered technology.",
-    image: "/img11.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro10",
-    orderLink:"/contact"
-  },
+  // {
+  //   id: 11,
+  //   name: "Swan 600 MM belt Type machine",
+  //   description: "Enhance sorting efficiency with AI-powered technology.",
+  //   image: "/img11.jpeg",
+  //   video: "/Video1.mp4",
+  //   link: "/Products/pro10",
+  //   orderLink:"/contact"
+  // },
   {
     id: 12,
     name: "Swan 1 chute 64 channel ms/ss frame",
@@ -117,25 +117,25 @@ const products = [
     image: "/img12.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro11",
-    orderLink:"/contact"
+    orderLink:"/Orders"
   },
-  {
-    id: 13,
-    name: "Swan RGB AI 10chute 640 channel",
-    description: "Enhance sorting efficiency with AI-powered technology.",
-    image: "/img13.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro12",
-    orderLink:"/contact"
-  },
+  // {
+  //   id: 13,
+  //   name: "Swan RGB AI 10chute 640 channel",
+  //   description: "Enhance sorting efficiency with AI-powered technology.",
+  //   image: "/img13.jpeg",
+  //   video: "/Video1.mp4",
+  //   link: "/Products/pro12",
+  //   orderLink:"/contact"
+  // },
   {
     id: 14,
-    name: "Swan  2 chute 128 channel box type",
+    name: "Swan 5 Chute (320 Channels) ",
     description: "We manufacture high-quality Dal Color Sorter Machines.",
-    image: "/img5.png",
+    image: "/img4.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro5",
-    orderLink:"/contact"
+    orderLink:"/Orders"
   }
 ];
 
@@ -221,7 +221,7 @@ const ProductsPage = () => {
                 <p className="text-gray-600 text-sm mt-2">{product.description}</p>
 
                 <div className="flex flex-col gap-2 mt-4">
-                  <Link href={product.link}>
+                  <Link href={product.orderLink}>
                     <motion.button
                       className="bg-gradient-to-r from-green-400 to-blue-400 text-white py-2 px-4 text-xs sm:text-sm rounded-lg w-full"
                       whileHover={{ scale: 1.05 }}

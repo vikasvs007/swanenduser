@@ -7,6 +7,8 @@ import { Calendar } from "lucide-react";
 import Navbar from "../Components/NavbarLinks/Navbar";
 import Footerpage from "../Components/LandingPages/Footerpage";
 import axios from "axios";
+import ChatBot from "../Components/ChatBot/ChatBot";
+import AutoPopupChat from "../Components/LandingPages/AutoComponentspop";
 
 const Page = () => {
   const [blogs, setBlogs] = useState([]);
@@ -120,7 +122,8 @@ const Page = () => {
           </div>
         )}
       </div>
-
+      <ChatBot />
+      <AutoPopupChat/>
       <Footerpage />
     </div>
   );

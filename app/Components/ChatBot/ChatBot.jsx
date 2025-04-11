@@ -414,7 +414,7 @@ const ChatBot = () => {
 
   return (
     <motion.div
-      className="fixed -mx-5 bottom-10 md:right-20 right-10 z-50 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"
+      className="fixed  -mx-5 bottom-10 md:right-20 right-10 z-50 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"
       animate={sheking ? { y: [0, 10, -10, 10, 0] } : { x: 0 }}
       transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
       onClick={() => setsheking(false)}

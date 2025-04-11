@@ -4,6 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../Components/NavbarLinks/Navbar";
 import Footerpage from "../Components/LandingPages/Footerpage";
+import ChatBot from "../Components/ChatBot/ChatBot";
+import AutoPopupChat from "../Components/LandingPages/AutoComponentspop";
 
 const products = [
   {
@@ -35,7 +37,7 @@ const products = [
     brochureLink: "/PdfFolder/Industrial_Grain_Sorting.pdf",
   },
   {
-    name: " Swan 300 mmbelt type",
+    name: " Swan 1 chute 64 channel",
     image: "/img3.jpg",
     description: "Introducing Falcon Max – maximum performance, maximum precision.",
     features: [
@@ -87,7 +89,7 @@ const products = [
     brochureLink: "/PdfFolder/SWAN_RGB_AI_3Chute.pdf",
   },
   {
-    name: " Swan1 chute 64 channel",
+    name: " Swan 1 chute 64 channel",
     image: "/img7.jpeg",
     description: "Advanced spectral imaging for the most precise separation.",
     features: [
@@ -123,10 +125,10 @@ const products = [
       "4K touch panel interface",
     ],
     reverse: false,
-    brochureLink: "/PdfFolder/Swan_RGB_AI_1Chute.pdf",
+    brochureLink: "/PdfFolder/Midlevel_Sorting_Powerhouse.pdf",
   },
   {
-    name: "Swan 5 chute 320 channel",
+    name: "Swan 5RGB Ai 10 chute 640 channel",
     image: "/img10.jpeg",
     description: "Flagship model built for ultra-speed industrial-scale operations.",
     features: [
@@ -149,10 +151,10 @@ const products = [
       "4K touch panel interface",
     ],
     reverse: true,
-    brochureLink: "/PdfFolder/SpectraPro.pdf",
+    brochureLink: "/PdfFolder/Industrial_Grain_Sorting",
   },
   {
-    name: "1 chute 64 channel ms/ss frame",
+    name: " Swan 1 chute 64 channel ms/ss frame",
     image: "/img12.jpeg",
     description: "Flagship model built for ultra-speed industrial-scale operations.",
     features: [
@@ -162,7 +164,7 @@ const products = [
       "Dual cleaning system",
     ],
     reverse: false,
-    brochureLink: "/PdfFolder/SwanUltra_Brochure.pdf",
+    brochureLink: "/PdfFolder/Swan_RGB_AI_1Chute.pdf",
   },
 ];
 
@@ -247,6 +249,8 @@ const Page = () => {
       </section>
 
       <div className="py-10">
+        <ChatBot/>
+        <AutoPopupChat/>
         <Footerpage />
       </div>
     </div>

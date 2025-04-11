@@ -6,6 +6,9 @@ import { motion } from "framer-motion";
 import Navbar from "../Components/NavbarLinks/Navbar";
 import ContactForm from "../Components/Crad/ContactForm";
 import Footerpage from "../Components/LandingPages/Footerpage";
+import ChatBot from "../Components/ChatBot/ChatBot";
+import AutoPopupChat from "../Components/LandingPages/AutoComponentspop";
+import MaterialPanel from "../Components/LandingPages/Categories";
 
 // ✅ Your actual solutions array
 const solutions = [
@@ -38,18 +41,15 @@ const solutions = [
         recommended: [
           {
             image: "/img1.jpeg",
-            title: "Wheat Optical Sorter 5000",
-            description: "Precision sorting for wheat grains using AI-powered vision tech.",
+            title:"swan 300 belt type ms frame",
           },
           {
             image: "/img2.jpeg",
-            title: "Wheat Optical Sorter 5000",
-            description: "Precision sorting for wheat grains using AI-powered vision tech.",
+            title: "swan 300 mm belt type",
           },
           {
             image: "/img3.jpg",
-            title: "Wheat Optical Sorter 5000",
-            description: "Precision sorting for wheat grains using AI-powered vision tech.",
+            title: "swan 1 chute 64 channels",
           },
         ],
       },
@@ -76,18 +76,15 @@ const solutions = [
         recommended: [
           {
             image: "/img4.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "swan 3 Chute 192 Channel",
           },
           {
             image: "/img5.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "swan 2 chute 128 channel box type",
           },
           {
             image: "/img6.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan 3 chute 192 channel",
           },
         ],
       },
@@ -122,18 +119,15 @@ const solutions = [
         recommended: [
           {
             image: "/img7.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan 8 chute 512 channel",
           },
           {
             image: "/img8.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan 8 chute 512 channel",
           },
           {
             image: "/img9.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan 1 chute 64 channel",
           },
         ],
       },
@@ -172,18 +166,15 @@ const solutions = [
         recommended: [
           {
             image: "/img10.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan  5 chute 320 channel",
           },
           {
             image: "/img11.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan 600 mm belt type machine",
           },
           {
             image: "/img12.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan 1 chute 64 channel ms/ss frame",
           },
         ],
       },
@@ -210,18 +201,15 @@ const solutions = [
         recommended: [
           {
             image: "/img1.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "swan 300 belt type ms frame",
           },
           {
             image: "/img11.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan 600 mm belt type machine",
           },
           {
             image: "/img8.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan 8 chute 512 channel",
           },
         ],
       },
@@ -244,18 +232,15 @@ const solutions = [
         recommended: [
           {
             image: "/img10.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan  5 chute 320 channel",
           },
           {
             image: "/img11.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan 600 mm belt type machine",
           },
           {
             image: "/img12.jpeg",
-            title: "Smart Rice Sorter X1",
-            description: "Optimized for various rice types with infrared detection.",
+            title: "Swan 1 chute 64 channel ms/ss frame",
           },
         ],
       },
@@ -290,19 +275,13 @@ const solutions = [
         recommended: [
           {
             image: "/img5.jpeg",
-            title: "PET Auto Sort Pro",
-            description: "Detects and separates PET plastics with high efficiency.",
-          },
+            title: "swan 2 chute 128 channel box type",          },
           {
             image: "/img6.jpeg",
-            title: "PET Auto Sort Pro",
-            description: "Detects and separates PET plastics with high efficiency.",
-          },
+            title: "Swan 3 chute 192 channel",          },
           {
             image: "/img8.jpeg",
-            title: "PET Auto Sort Pro",
-            description: "Detects and separates PET plastics with high efficiency.",
-          },
+            title: "Swan 8 chute 512 channel",          },
         ],
       },
     ],
@@ -430,7 +409,9 @@ const Page = () => {
           </div>
         </div>
       </div>
-
+      <div>
+        <MaterialPanel/>
+      </div>
       {/* Contact Form & Footer */}
       <div>
         <h2 className="text-center text-4xl sm:text-2xl md:text-5xl mt-6 sm:mt-8 font-bold">
@@ -438,6 +419,8 @@ const Page = () => {
             More Information?
           </span>
         </h2>
+        <ChatBot/>
+        <AutoPopupChat/>
         <ContactForm />
         <Footerpage />
       </div>

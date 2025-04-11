@@ -47,7 +47,7 @@ const BlogDetailPage = async (props) => {
 
         <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300">
           {/* Blog Image */}
-          <div className="w-full h-64 md:h-80 relative">
+          <div className="w-full h-68 md:h-80 relative">
             <Image
               src={
                 blog.featured_image?.startsWith("data:image")
@@ -57,7 +57,7 @@ const BlogDetailPage = async (props) => {
               alt={blog.title}
               fill
               priority
-              className="object-cover transition-transform duration-300 hover:scale-105"
+              className="object-contain w-full transition-transform duration-300 hover:scale-105"
             />
           </div>
 

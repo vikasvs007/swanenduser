@@ -48,7 +48,7 @@ const Page = () => {
           animate="visible"
           variants={fadeIn}
         >
-        Swan 1 Chute (64 Channels)
+        Swan 600 MM belt Type machine
         </motion.h1>
 
         {/* Main Machine Image */}

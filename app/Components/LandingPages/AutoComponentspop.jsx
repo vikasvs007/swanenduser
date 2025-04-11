@@ -1,4 +1,3 @@
-// components/AutoPopupChat.js
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -9,33 +8,29 @@ const AutoPopupChat = () => {
 
   const messages = [
     {
-      title: "🎉 Best Sorting Machines ",
-      subtitle: "Get up to 25% off on Sorting Machines",
-      note: "Chat with us to grab your deal today!",
+      title: "✨ Enhance Your Workflow",
+      subtitle: "Smart AI-Powered Sorting Machines",
+      note: "Let our intelligent systems optimize your production.",
       image: "/img1.jpeg",
     },
     {
-      title: "Need help choosing a machine?",
-      subtitle: "Our team is ready to guide you",
-      note: "Find the perfect match for your needs.",
+      title: "🚀 Boost Efficiency & Accuracy",
+      subtitle: "Tailored solutions for every industry",
+      note: "Reach out and discover the perfect match.",
       image: "/img4.jpeg",
     },
     {
-      title: "💡 Custom Sorting Solutions",
-      subtitle: "We build it to suit your business",
-      note: "Let’s start your free consultation!",
+      title: "🔧 We Build. You Scale.",
+      subtitle: "Custom sorting for your unique needs",
+      note: "Consult our team for free today!",
       image: "/img3.jpg",
     },
   ];
 
-  const showPopup = () => {
-    setVisible(true);
-  };
-
   useEffect(() => {
-    const delay = Math.floor(Math.random() * 10000) + 10000; // 10–20 sec
+    const delay = Math.floor(Math.random() * 10000) + 10000; // 10–20 seconds
     const initialTimer = setTimeout(() => {
-      showPopup();
+      setVisible(true);
     }, delay);
 
     return () => clearTimeout(initialTimer);
@@ -46,7 +41,7 @@ const AutoPopupChat = () => {
     setTimeout(() => {
       setMessageIndex((prev) => (prev + 1) % messages.length);
       setVisible(true);
-    }, 15000); // Reappear after 15 seconds
+    }, 15000);
   };
 
   const current = messages[messageIndex];
@@ -54,9 +49,7 @@ const AutoPopupChat = () => {
   return (
     <div
       className={`fixed bottom-6 left-6 transition-all duration-500 ease-in-out z-[999999999] ${
-        visible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-10 pointer-events-none"
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
       }`}
     >
       <div className="bg-white border shadow-2xl rounded-3xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl text-gray-800 overflow-hidden relative">
@@ -69,9 +62,12 @@ const AutoPopupChat = () => {
           <h4 className="font-bold text-xl sm:text-2xl mb-1">{current.title}</h4>
           <p className="text-base sm:text-lg mb-1">{current.subtitle}</p>
           <p className="text-sm sm:text-base text-gray-600 mb-3">{current.note}</p>
-          <button className="text-blue-600 hover:underline text-sm sm:text-base font-medium">
-            <a href="/contact">Chat Now →</a>
-          </button>
+          <a
+            href="/contact"
+            className="text-blue-600 hover:underline text-sm sm:text-base font-medium"
+          >
+            Chat Now →
+          </a>
         </div>
         <button
           className="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-xl"

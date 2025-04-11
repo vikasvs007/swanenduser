@@ -48,7 +48,7 @@ const Page = () => {
           animate="visible"
           variants={fadeIn}
         >
-        Swan 300 MM belt type machine MS Frame
+        Swan 300 MM belt type  MS Frame
         </motion.h1>
 
         {/* Main Machine Image */}

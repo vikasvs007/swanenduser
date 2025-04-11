@@ -27,8 +27,9 @@ const Footerpage = () => {
           className="flex items-center space-x-3"
         >
           <Image
-            src="/SwanSorter_Logo-02.png"
+            src="/Logo_img.png"
             alt="Swan Sorter Systems Logo"
+            className="rounded-full"
             width={120}
             height={40}
           />
@@ -94,7 +95,10 @@ const Footerpage = () => {
                 { name: "Media & Downloads", href: "/media-downloads" },
                 // { name: "Press Release", href: "/press-release" },
                 { name: "Contact Us", href: "/contact" },
-                { name: "Download Brochures", href: "/PdfFolder/SwanSorter-Brochure_V2 -Buyers (Final).pdf" },
+                {
+                  name: "Download Brochures",
+                  href: "/PdfFolder/SwanSorter-Brochure_V2 -Buyers (Final).pdf",
+                },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -118,18 +122,25 @@ const Footerpage = () => {
         transition={{ duration: 0.6, delay: 1 }}
         className="mt-6 flex justify-center space-x-6"
       >
-        {[FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram].map(
-          (Icon, index) => (
-            <motion.a
-              key={index}
-              href="#"
-              whileHover={{ scale: 1.2 }}
-              className="p-3 rounded-full bg-gray-200 hover:bg-gradient-to-r from-green-400 to-blue-400 text-gray-800 hover:text-white transition duration-300"
-            >
-              <Icon className="w-5 h-5" />
-            </motion.a>
-          )
-        )}
+        {[
+          { Icon: FaFacebookF, link: "https://www.facebook.com/p/Swan-Sorter-Systems-Pvt-Ltd-100068629621171/?locale=eo_EO" },
+          { Icon: FaTwitter, link: "https://twitter.com/swansorter1 "},
+          {
+            Icon: FaLinkedinIn,
+            link: "https://www.linkedin.com/company/swan-sorter-systems?originalSubdomain=in",
+          },
+        ].map(({ Icon, link }, index) => (
+          <motion.a
+            key={index}
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.2 }}
+            className="p-3 rounded-full bg-gray-200 hover:bg-gradient-to-r from-green-400 to-blue-400 text-gray-800 hover:text-white transition duration-300"
+          >
+            <Icon className="w-5 h-5" />
+          </motion.a>
+        ))}
       </motion.div>
 
       {/* Footer Bottom */}
@@ -140,7 +151,7 @@ const Footerpage = () => {
         className="mt-8 border-t border-gray-200 pt-6 text-center"
       >
         <p className="text-gray-600">
-          © 2022, Swan Sorter System Pvt. Ltd. / All rights reserved.
+          © 2025, Swan Sorter System Pvt. Ltd. / All rights reserved.
         </p>
         <div className="mt-2 flex flex-wrap justify-center space-x-4">
           {["Privacy", "Terms", "Sitemap"].map((path) => (

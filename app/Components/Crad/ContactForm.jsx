@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import axios from "axios";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -12,40 +13,36 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const formData = {
       name,
-      subject,
       email,
       phone,
       message,
+      subject,
     };
-  
+
     try {
-      const res = await fetch("https://swanbackend.onrender.com/api/enquiries", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-  
-      const data = await res.json();
-      if (res.status === 200) {
+      const response = await axios.post("https://swanbackend.onrender.com/api/enquiries", formData);
+    
+      if (response.status === 200 || response.status === 201) {
         toast.success("Message sent successfully!");
+        console.log("Response:", response.data);
         setName("");
         setSubject("");
         setEmail("");
         setPhone("");
         setMessage("");
       } else {
-        toast.error(data?.message || "Something went wrong.");
+        console.error("Unexpected response:", response);
+        toast.error("Something went wrong. Please try again.");
       }
-    } catch (err) {
-      toast.error("Failed to send. Please try again later.");
+    } catch (error) {
+      console.error("Error occurred while sending message:", error);
+      toast.error(error.response?.data?.message || "Failed to send. Please try again later.");
     }
+    
   };
-  
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6">

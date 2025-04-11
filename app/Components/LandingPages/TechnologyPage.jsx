@@ -83,7 +83,7 @@ const TechnologyPage = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Know About Us
+          <a href="/contact">Know About Us</a>
           </motion.button>
         </div>
       </div>

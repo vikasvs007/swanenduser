@@ -23,25 +23,27 @@ const Main = () => {
   useEffect(() => {
     const popupShown = localStorage.getItem("popupShown");
 
+    // Show landing page immediately
+    setShowLanding(true);
+
+    // Delay popup if not shown before
     if (popupShown !== "true") {
-      setPopupOpen(true);
-      localStorage.setItem("popupShown", "true");
-    } else {
-      setShowLanding(true); // If already shown, go to landing directly
+      const timer = setTimeout(() => {
+        setPopupOpen(true);
+        localStorage.setItem("popupShown", "true");
+      }, 5000); // 5 seconds delay
+
+      // Cleanup timer
+      return () => clearTimeout(timer);
     }
   }, []);
 
   const handleClosePopup = () => {
     setPopupOpen(false);
-    setTimeout(() => {
-      setShowLanding(true);
-    }, 300);
   };
 
   return (
     <div className="w-full h-auto overflow-hidden">
-      <VisitorPopup open={popupOpen} onClose={handleClosePopup} />
-
       {showLanding && (
         <>
           <Hero />
@@ -59,6 +61,9 @@ const Main = () => {
           <AutoPopupChat />
         </>
       )}
+
+      {/* Show popup only after landing is shown */}
+      {popupOpen && <VisitorPopup open={popupOpen} onClose={handleClosePopup} />}
     </div>
   );
 };

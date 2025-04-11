@@ -29,12 +29,14 @@ const brochures = [
 const MediaPage = () => {
   return (
     <div className="w-full min-h-full">
-      <Navbar/>
+      <Navbar />
       <div className="bg-white min-h-screen">
         {/* Header */}
         <div className="w-full  py-10 text-white text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-            <span className="bg-gradient-to-r from-green-400 to-blue-400 text-white font-bold px-4 rounded-2xl">Media & Brochures</span>
+            <span className="bg-gradient-to-r from-green-400 to-blue-400 text-white font-bold px-4 rounded-2xl">
+              Media & Brochures
+            </span>
           </h1>
           <p className="text-lg sm:text-xl max-w-2xl mx-auto">
             Explore and download our latest marketing materials, catalogs, and
@@ -43,7 +45,7 @@ const MediaPage = () => {
         </div>
 
         {/* Grid */}
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 md:py-16 grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {brochures.map((item, index) => (
             <div
               key={index}
@@ -75,7 +77,35 @@ const MediaPage = () => {
           ))}
         </section>
       </div>
-      <Footerpage/>
+      {/* Our Team Section */}
+      {/* Our Team Section */}
+      {/* Our Team Section */}
+      <section className="bg-gradient-to-b from-white to-gray-100 py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-4">
+            <span className="bg-gradient-to-r from-green-400 to-blue-400 text-white px-4 py-1 rounded-2xl">
+              Meet Our Team
+            </span>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+            A passionate group of innovators, engineers, and visionaries driving
+            the future of AI and automation.
+          </p>
+
+          {/* First Grid - One Full Width Member */}
+          <div className="grid grid-cols-1 mb-10">
+            <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition p-6 flex flex-col items-center text-center">
+              <img
+                src="/044a6442-c258-449f-b0d1-0ede2181346c.jpg"
+                alt="John Doe"
+                className="w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footerpage />
     </div>
   );
 };

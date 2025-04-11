@@ -20,7 +20,7 @@ import GoogleTranslateDropdown from "../Google_Translator/google";
           transition={{ duration: 0.5 }}
           className="flex items-center gap-3 mx-5"
         >
-          <Image src={SwanSortlogo} alt="SwanSorter Logo" width={50} height={50} />
+          <Image src='/Logo_img.png' className=" rounded-full" alt="SwanSorter Logo" width={50} height={50} />
           <h1 className="text-2xl font-bold">SwanSorter</h1>
         </motion.div>
 

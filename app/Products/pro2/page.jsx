@@ -48,7 +48,7 @@ const Page = () => {
           animate="visible"
           variants={fadeIn}
         >
-         Swan 2 Chute (128 Channels)
+         Swan 2 Chute (128 Channels) box type
         </motion.h1>
 
         {/* Main Machine Image */}
@@ -98,15 +98,14 @@ const Page = () => {
                   </h3>
                   <ul className="space-y-3">
                     {[
-                      { icon: FaCogs, label: "Model", value: "MSXC-120M" },
-                      { icon: FaSort, label: "Chutes", value: "2" },
-                      { icon: FaBolt, label: "Throughput", value: "0.4 - 2.4 t/h" },
-                      { icon: FaCompress, label: "Sorting Accuracy", value: "≥99.9%" },
+                      { icon: FaSort, label: "channels", value: "128" },
+                      { icon: FaBolt, label: " Sorting Capacity", value: " 200 - 3000 kg/hr" },
+                      { icon: FaCompress, label: "Accuracy", value: "≥99.9%" },
 
-                      { icon: FaBolt, label: "Power Voltage", value: "180~240V / 50Hz" },
-                      { icon: FaCompress, label: "Air Source Pressure", value: "0.6 ~ 0.8 MPa" },
-                      { icon: FaWeightHanging, label: "Weight", value: "300 kg" },
-                      { icon: FaRuler, label: "Dimensions", value: "940 × 1480 × 1500 mm" },
+                      { icon: FaBolt, label: "Power Voltage", value: "230V / 2.6A" },
+                      { icon: FaCompress, label: "Air Source Pressure", value: "2-6 Bar" },
+                      { icon: FaWeightHanging, label: " Compressor Powe", value: "10 Hp" },
+                      { icon: FaRuler, label: "Dimensions", value: "1200×1550×1800 mm" },
                     ].map((item, index) => (
                       <motion.li
                         key={index}

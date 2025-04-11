@@ -78,6 +78,9 @@ const Latestnews = () => {
           ))}
         </div>
       </motion.section>
+      <div className="w-full text-center pb-10">
+        <button className="bg-gradient-to-r from-green-400 to-blue-400 px-5 py-2 font-bold text-white rounded-2xl text-2xl"><a href="/Blogs">View Blogs</a></button>
+      </div>
     </div>
   );
 };

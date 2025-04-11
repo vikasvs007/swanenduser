@@ -6,6 +6,8 @@ import { FaChevronDown } from "react-icons/fa";
 import Link from "next/link";
 import Navbar from "../Components/NavbarLinks/Navbar";
 import Footerpage from "../Components/LandingPages/Footerpage";
+import ChatBot from "../Components/ChatBot/ChatBot";
+import AutoPopupChat from "../Components/LandingPages/AutoComponentspop";
 
 const faqs = [
   {
@@ -13,45 +15,111 @@ const faqs = [
     answer:
       "Yes, our latest models come with IoT-enabled remote monitoring for real-time performance tracking.",
   },
+  // ... your existing FAQs
+
+  // New FAQs from document:
   {
-    question: "Can your machines be integrated with existing production lines?",
+    question: "What is Swan Sorter System Pvt Ltd?",
     answer:
-      "Yes, our machines can be seamlessly integrated into existing conveyor systems and production setups.",
+      "Swan Sorter System Pvt Ltd is a leading manufacturer of AI-powered sorting machines designed to improve efficiency and accuracy in material sorting across various industries.",
   },
   {
-    question: "What types of sorting machines do you offer?",
-    answer: `We offer AI-powered sorting machines that use next-generation technology to ensure superior accuracy. Our range includes:
-• Optical Sorters
-• Color Sorters
-• Multi-Spectral Sorters
-• Quality Inspection Systems`,
+    question: "Where is your company located?",
+    answer:
+      "Our head office is in Bangalore, India, and we operate in multiple locations, (Pan India)",
   },
   {
-    question: "How do your AI-based sorting machines work?",
+    question: "What industries do you serve?",
     answer:
-      "Our machines use Artificial Intelligence (AI), Machine Learning (ML), and advanced imaging technology to detect and separate materials based on color, shape, size, and defects.",
+      "We serve industries such as agriculture, food processing, recycling, plastics, mining, and more.",
   },
   {
-    question: "What materials can your sorters handle?",
+    question: "How long has Swan Sorter been in business?",
     answer:
-      "Our sorters are capable of handling a wide range of materials including grains, pulses, plastics, glass, metals, and more.",
+      "We have been in the industry for several years, continuously innovating to provide next-generation sorting technology.",
   },
   {
-    question: "Do you provide installation and training support?",
+    question: "What materials can your machines sort?",
     answer:
-      "Yes, we provide complete on-site installation and training to ensure your team can operate the machine efficiently from day one.",
+      "Our sorters can handle a wide range of materials, including:\n• Grains & Pulses (Rice, Wheat, Lentils, etc.)\n• Nuts & Dry Fruits\n• Plastics & Polymers\n• Recyclables & Waste Management\n• Metals & Minerals",
   },
   {
-    question: "How do I maintain and service the machines?",
+    question: "What is the accuracy level of your sorting machines?",
     answer:
-      "We offer regular maintenance packages and remote diagnostics. Our technical support team is available 24/7 for assistance and troubleshooting.",
+      "Our machines offer high-precision sorting with up to 99.9% accuracy, reducing waste and improving productivity.",
   },
   {
-    question: "Are your sorting machines customizable?",
+    question: "How do your machines compare to traditional sorting methods?",
     answer:
-      "Absolutely! We tailor each machine to suit the specific needs of your industry, material type, and operational environment.",
+      "Unlike traditional sorting, our AI-based sorters provide faster, more precise, and automated solutions, reducing human effort and errors.",
+  },
+  {
+    question: "How can I purchase a sorting machine from Swan Sorter?",
+    answer:
+      "You can contact our sales team through our website or call us at 8792073059 for product inquiries and quotations.",
+  },
+  {
+    question: "Do you offer demonstrations before purchase?",
+    answer:
+      "Yes, we provide live demonstrations and testing to ensure our machines meet your requirements.",
+  },
+  {
+    question: "What is the price range of your sorting machines?",
+    answer:
+      "The price depends on the machine type, features, and customization. Contact us for a detailed quote.",
+  },
+  {
+    question: "Do you offer financing options?",
+    answer:
+      "We can discuss financing options based on your needs. Get in touch with our sales team for more details.",
+  },
+  {
+    question: "Do you provide installation services?",
+    answer:
+      "Yes, our experts provide on-site installation and setup for all sorting machines.",
+  },
+  {
+    question: "Do you offer after-sales support?",
+    answer:
+      "Yes, we provide 24/7 customer support, maintenance, and troubleshooting to ensure smooth operation.",
+  },
+  {
+    question: "What kind of maintenance do your machines require?",
+    answer:
+      "Regular cleaning, software updates, and routine check-ups help maintain machine performance.",
+  },
+  {
+    question: "Can I get spare parts for my sorting machine?",
+    answer:
+      "Yes, we offer genuine spare parts and accessories for all our machines.",
+  },
+  {
+    question: "Do you provide operator training?",
+    answer:
+      "Yes, we provide training programs to help your team operate and maintain the machines efficiently.",
+  },
+  {
+    question: "What software do your sorting machines use?",
+    answer:
+      "Our machines run on AI-driven software with self-learning capabilities to improve sorting accuracy over time.",
+  },
+  {
+    question: "What happens if the machine malfunctions?",
+    answer:
+      "Our support team can diagnose issues remotely or send an engineer for on-site repairs if needed.",
+  },
+  {
+    question: "How can I apply for a job at Swan Sorter System Pvt Ltd?",
+    answer:
+      "You can check our Careers page or contact our HR team for job openings.",
+  },
+  {
+    question: "How can I contact customer support?",
+    answer:
+      "You can reach us via phone, email, or our website’s contact form. Visit our Contact Us page for more details.",
   },
 ];
+
 
 
 const page = () => {
@@ -101,7 +169,7 @@ const page = () => {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   transition={{ duration: 0.3 }}
-                  className="px-6 py-4 bg-white text-gray-600 border-t border-gray-200 whitespace-pre-line"
+                  className="px-6 py-4 bg-white text-gray-600 font-bold border-t border-gray-200 whitespace-pre-line"
                 >
                   {faq.answer}
                 </motion.div>
@@ -110,6 +178,8 @@ const page = () => {
           ))}
         </div>
       </section>
+      <ChatBot/>
+      <AutoPopupChat/>
       <Footerpage/>
     </div>
   );

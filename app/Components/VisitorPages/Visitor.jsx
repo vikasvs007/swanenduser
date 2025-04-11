@@ -1,17 +1,46 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const VisitorPopup = ({ open, onClose }) => {
   const [loading, setLoading] = useState(false);
   const [collected, setCollected] = useState(false);
 
-  const getVisitorIP = async () => {
+  const getVisitorInfo = async () => {
     setLoading(true);
     try {
-      const ipRes = await axios.get("https://api.ipify.org?format=json");
-      const ip = ipRes.data.ip;
+      let ip = "";
+      let country = "";
+      let city = "";
+
+      // Method 1: ipify + ipapi.co
+      try {
+        const ipResponse = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        ip = ipData.ip;
+
+        const locationResponse = await fetch(`https://ipapi.co/${ip}/json/`);
+        const locationData = await locationResponse.json();
+
+        if (!locationData.error) {
+          country = locationData.country_name || "";
+          city = locationData.city || "";
+        } else {
+          throw new Error("Location error");
+        }
+      } catch (error) {
+        // Method 2: ipwho.is backup
+        const geoResponse = await fetch('https://ipwho.is/');
+        const geoData = await geoResponse.json();
+        if (geoData.success !== false) {
+          ip = geoData.ip;
+          country = geoData.country || "";
+          city = geoData.city || "";
+        } else {
+          throw new Error("Both methods failed");
+        }
+      }
 
       const userAgent = navigator.userAgent;
       const browser = navigator.userAgentData?.brands?.[1]?.brand || "Unknown";
@@ -35,6 +64,8 @@ const VisitorPopup = ({ open, onClose }) => {
         browser,
         os,
         location: {
+          country,
+          city,
           coordinates,
         },
       };
@@ -44,7 +75,7 @@ const VisitorPopup = ({ open, onClose }) => {
       if (res.status === 201 || res.status === 200) {
         console.log("✅ Visitor info submitted:", payload);
         setCollected(true);
-        setTimeout(() => onClose(), 1200);
+        setTimeout(() => onClose(), 1500);
       }
     } catch (err) {
       console.error("❌ Error collecting visitor info:", err);
@@ -52,43 +83,29 @@ const VisitorPopup = ({ open, onClose }) => {
     setLoading(false);
   };
 
-  const handleToggle = async () => {
-    if (!collected) await getVisitorIP();
-  };
+  useEffect(() => {
+    if (open && !collected) {
+      getVisitorInfo();
+    }
+  }, [open]);
 
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
       <div className="bg-white rounded-3xl shadow-2xl px-6 py-8 w-[90%] max-w-md animate-slideUp">
-        <h2 className="text-2xl font-bold text-center mb-2">🚀 Quick Setup</h2>
+        <h2 className="text-2xl font-bold text-center mb-2">🔍 Improve Your Experience</h2>
         <hr className="mb-4 border-gray-200" />
         <p className="text-sm text-gray-600 text-center mb-6">
-          We'd like to collect basic info to personalize your experience. 🔐
+          We’re capturing basic insights to improve your experience.
         </p>
 
-        <div className="flex items-center justify-center space-x-3">
-          <span className="text-sm font-medium text-gray-700">Allow</span>
-          <button
-            onClick={handleToggle}
-            disabled={loading || collected}
-            className={`relative w-12 h-6 rounded-full transition-colors duration-300 ${
-              collected ? "bg-green-500" : "bg-gray-300"
-            }`}
-            aria-label="Allow tracking toggle"
-          >
-            <span
-              className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
-                collected ? "translate-x-6" : ""
-              }`}
-            ></span>
-          </button>
-
+        <div className="text-center mt-4">
           {loading && (
-            <div className="ml-2 w-4 h-4 border-2 border-t-transparent border-gray-400 rounded-full animate-spin" />
+            <div className="mx-auto w-6 h-6 border-2 border-t-transparent border-blue-500 rounded-full animate-spin" />
           )}
           {collected && (
-            <span className="ml-2 text-green-600 font-semibold">✔ Sent</span>
+            <span className="text-green-600 font-semibold text-lg">✔ Done</span>
           )}
         </div>
       </div>

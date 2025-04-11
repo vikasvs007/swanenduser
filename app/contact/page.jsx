@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Navbar from "../Components/NavbarLinks/Navbar";
 import ContactForm from "../Components/Crad/ContactForm";
 import Footerpage from "../Components/LandingPages/Footerpage";
+import AutoPopupChat from "../Components/LandingPages/AutoComponentspop";
+import ChatBot from "../Components/ChatBot/ChatBot";
 
 const fadeIn = {
   hidden: { opacity: 0, y: -20 },
@@ -83,6 +85,8 @@ const Page = () => {
         </motion.div>
       </div>
       <motion.div initial="hidden" animate="visible" variants={fadeIn}>
+        <AutoPopupChat/>
+        <ChatBot/>
         <Footerpage />
       </motion.div>
     </div>

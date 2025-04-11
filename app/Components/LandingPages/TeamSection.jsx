@@ -5,13 +5,13 @@ const teamMembers = [
     name: "Vinayaka T.",
     role: "Technical",
     des: "To become the leader in manufacturing of color sorters as per the international standards and generate global demand of color sorter machine.",
-    image: "https://images.unsplash.com/photo-1734657420987-06e7f337d016?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "partners2.jpeg",
   },
   {
     name: "Shijo George",
     role: "Director - Sales",
     des: "To become the leader in manufacturing of color sorters as per the international standards and generate global demand of color sorter machine.",
-    image: "https://images.unsplash.com/photo-1734657420987-06e7f337d016?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "partners1.jpeg",
   },
 ];
 
@@ -42,12 +42,8 @@ export default function TeamSection() {
               <p className="text-gray-600 mt-2 text-sm">{member.des}</p>
             )}
 
-            {/* Social Media Icons */}
-            <div className="flex justify-center gap-4 mt-4">
-              <FaInstagram className="text-gray-500 hover:text-pink-500 text-2xl cursor-pointer" />
-              <FaXTwitter className="text-gray-500 hover:text-blue-500 text-2xl cursor-pointer" />
-              <FaLinkedin className="text-gray-500 hover:text-blue-600 text-2xl cursor-pointer" />
-            </div>
+
+            
           </div>
         ))}
       </div>

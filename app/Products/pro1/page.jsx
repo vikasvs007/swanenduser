@@ -48,7 +48,7 @@ const Page = () => {
           animate="visible"
           variants={fadeIn}
         >
-          Swan 2 Chute 128 Channels
+          300 belt type ms frame 
         </motion.h1>
 
         {/* Main Machine Image */}
@@ -98,7 +98,6 @@ const Page = () => {
                   </h3>
                   <ul className="space-y-3">
                     {[
-                      { icon: FaCogs, label: "Model", value: "MSXC-120M" },
                       { icon: FaSort, label: "Chutes", value: "2" },
                       { icon: FaBolt, label: "Throughput", value: "0.4 - 2.4 t/h" },
                       { icon: FaCompress, label: "Sorting Accuracy", value: "≥99.9%" },
