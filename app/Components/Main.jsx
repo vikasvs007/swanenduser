@@ -18,20 +18,31 @@ import AutoPopupChat from "./LandingPages/AutoComponentspop";
 
 const Main = () => {
   const [popupOpen, setPopupOpen] = useState(false);
+  const [showLanding, setShowLanding] = useState(false);
 
   useEffect(() => {
     const popupShown = localStorage.getItem("popupShown");
+
     if (popupShown !== "true") {
       setPopupOpen(true);
       localStorage.setItem("popupShown", "true");
+    } else {
+      setShowLanding(true); // If already shown, go to landing directly
     }
   }, []);
 
+  const handleClosePopup = () => {
+    setPopupOpen(false);
+    setTimeout(() => {
+      setShowLanding(true);
+    }, 300);
+  };
+
   return (
     <div className="w-full h-auto overflow-hidden">
-       <AutoPopupChat/>
-      <VisitorPopup open={popupOpen} onClose={() => setPopupOpen(false)} />
-      {!popupOpen && (
+      <VisitorPopup open={popupOpen} onClose={handleClosePopup} />
+
+      {showLanding && (
         <>
           <Hero />
           <TechnologyPage />
@@ -45,7 +56,7 @@ const Main = () => {
           <Gallery />
           <Footerpage />
           <ChatBot />
-         
+          <AutoPopupChat />
         </>
       )}
     </div>

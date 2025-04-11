@@ -7,7 +7,7 @@ import Footerpage from "../Components/LandingPages/Footerpage";
 
 const products = [
   {
-    name: "Swan chute 64 channel",
+    name: "Swan 300 belt type ms frame",
     image: "/img1.Jpeg",
     description:
       "Experience next-level precision with the Swan RGB Tri Chromatic CCD Camera...",
@@ -22,7 +22,7 @@ const products = [
     brochureLink: "/PdfFolder/Industrial_Grain_Sorting.pdf",
   },
   {
-    name: " Swan 300 belt type ms frame",
+    name: " Swan 300 mmbelt type",
     image: "/img2.jpeg",
     description: "We are well known as the reputed organization...",
     features: [
@@ -35,7 +35,7 @@ const products = [
     brochureLink: "/PdfFolder/Industrial_Grain_Sorting.pdf",
   },
   {
-    name: " Swan 1 chute 64 channel ms/ss frame",
+    name: " Swan 300 mmbelt type",
     image: "/img3.jpg",
     description: "Introducing Falcon Max – maximum performance, maximum precision.",
     features: [
@@ -48,7 +48,7 @@ const products = [
     brochureLink: "/PdfFolder/SWAN_RGB_AI_8Chute_512.pdf",
   },
   {
-    name: "Swan 4 chute 128 channel",
+    name: "Swan 5 chute 320 channel",
     image: "/img4.jpeg",
     description: "We are well known as the reputed organization...",
     features: [
@@ -61,7 +61,7 @@ const products = [
     brochureLink: "/PdfFolder/SWAN_RGB_AI_5Chute_320.pdf",
   },
   {
-    name: " Swan 2 chute 128 channel box type",
+    name: " Swan  2 chute 128 channel box type",
     image: "/img5.jpeg",
     description: "Compact size with robust sorting capabilities for small-scale operations.",
     features: [
@@ -74,7 +74,7 @@ const products = [
     brochureLink: "/PdfFolder/SwiftMini_Brochure.pdf",
   },
   {
-    name: " Swan 4 chute 128 channel",
+    name: " Swan  3 chute 192 channel",
     image: "/img6.jpeg",
     description: "Extended capacity for larger grains and multi-sorting functions.",
     features: [
@@ -87,7 +87,7 @@ const products = [
     brochureLink: "/PdfFolder/SWAN_RGB_AI_3Chute.pdf",
   },
   {
-    name: " Swan 3 chute 192 channel",
+    name: " Swan1 chute 64 channel",
     image: "/img7.jpeg",
     description: "Advanced spectral imaging for the most precise separation.",
     features: [
@@ -100,7 +100,7 @@ const products = [
     brochureLink: "/PdfFolder/SpectraPro.pdf",
   },
   {
-    name: "Swan 8 chute 512 channel",
+    name: "Swan  8 chute 512 channel",
     image: "/img8.jpeg",
     description: "Flagship model built for ultra-speed industrial-scale operations.",
     features: [
@@ -112,19 +112,19 @@ const products = [
     reverse: true,
     brochureLink: "/PdfFolder/SwanUltra_Brochure.pdf",
   },
-  // {
-  //   name: "Swan Pro",
-  //   image: "/img9.jpeg",
-  //   description: "Advanced spectral imaging for the most precise separation.",
-  //   features: [
-  //     "Near-infrared spectrum analysis",
-  //     "AI-based contamination removal",
-  //     "Smart defect learning",
-  //     "4K touch panel interface",
-  //   ],
-  //   reverse: false,
-  //   brochureLink: "/PdfFolder/Swan_RGB_AI_1Chute.pdf",
-  // },
+  {
+    name: "Swan  2 chute 128 channel box type",
+    image: "/img5.png",
+    description: "Advanced spectral imaging for the most precise separation.",
+    features: [
+      "Near-infrared spectrum analysis",
+      "AI-based contamination removal",
+      "Smart defect learning",
+      "4K touch panel interface",
+    ],
+    reverse: false,
+    brochureLink: "/PdfFolder/Swan_RGB_AI_1Chute.pdf",
+  },
   {
     name: "Swan 5 chute 320 channel",
     image: "/img10.jpeg",
@@ -139,7 +139,7 @@ const products = [
     brochureLink: "/PdfFolder/SWAN_RGB_AI_10Chute_640.pdf",
   },
   {
-    name: " Swan 1 chute 64 channel ",
+    name: " Swan 600Mm belt type machine ",
     image: "/img11.jpeg",
     description: "Advanced spectral imaging for the most precise separation.",
     features: [
@@ -152,7 +152,7 @@ const products = [
     brochureLink: "/PdfFolder/SpectraPro.pdf",
   },
   {
-    name: "Swan 600Mm belt type machine",
+    name: "1 chute 64 channel ms/ss frame",
     image: "/img12.jpeg",
     description: "Flagship model built for ultra-speed industrial-scale operations.",
     features: [
@@ -163,19 +163,6 @@ const products = [
     ],
     reverse: false,
     brochureLink: "/PdfFolder/SwanUltra_Brochure.pdf",
-  },
-  {
-    name: "Swan RGB AI 10chute 640 channel",
-    image: "/img13.jpeg",
-    description: "Advanced spectral imaging for the most precise separation.",
-    features: [
-      "Near-infrared spectrum analysis",
-      "AI-based contamination removal",
-      "Smart defect learning",
-      "4K touch panel interface",
-    ],
-    reverse: true,
-    brochureLink: "/PdfFolder/SpectraPro.pdf",
   },
 ];
 
