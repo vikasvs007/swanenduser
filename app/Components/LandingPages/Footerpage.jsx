@@ -3,12 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 const Footerpage = () => {
   return (
@@ -16,15 +11,15 @@ const Footerpage = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="w-full h-auto bg-white text-gray-800 py-12 px-6 md:px-16"
+      className="w-full bg-white text-gray-800 py-12 px-6 md:px-16"
     >
-      <div className="max-w-7xl mx-auto flex flex-col items-center md:flex-row justify-between space-y-10 md:space-y-0">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start justify-between gap-10">
         {/* Logo Section */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex items-center space-x-3"
+          className="flex flex-col items-center md:items-start space-y-4"
         >
           <Image
             src="/Logo_img.png"
@@ -34,12 +29,12 @@ const Footerpage = () => {
             height={40}
           />
           <h1 className="text-2xl font-bold text-gray-900 text-center md:text-left">
-            Swan Sorter Systems
+            SwanSorter Systems Pvt Ltd
           </h1>
         </motion.div>
 
-        {/* Contact & Navigation */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left w-full">
+        {/* Grid of Info & Links */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -48,11 +43,11 @@ const Footerpage = () => {
           >
             <h3 className="text-lg font-semibold mb-4">Say Hi to Swan</h3>
             <p className="text-gray-600 font-medium">GENERAL ENQUIRIES</p>
-            <p className="text-gray-600">swan@swansorter.com</p>
+            <p className="text-gray-600">info@swansorter.com</p>
             <p className="text-gray-600">+91 8951 385 814</p>
 
             <p className="mt-4 text-gray-600 font-medium">SALES ENQUIRIES</p>
-            <p className="text-gray-600">swan@swansorter.com</p>
+            <p className="text-gray-600">info@swansorter.com</p>
             <p className="text-gray-600">+91 9986 899 129, +91 9483 445 471</p>
           </motion.div>
 
@@ -90,10 +85,9 @@ const Footerpage = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <h3 className="text-lg font-semibold mb-4">Important Links</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {[
                 { name: "Media & Downloads", href: "/media-downloads" },
-                // { name: "Press Release", href: "/press-release" },
                 { name: "Contact Us", href: "/contact" },
                 {
                   name: "Download Brochures",
@@ -120,11 +114,14 @@ const Footerpage = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="mt-6 flex justify-center space-x-6"
+        className="mt-10 flex justify-center space-x-6"
       >
         {[
-          { Icon: FaFacebookF, link: "https://www.facebook.com/p/Swan-Sorter-Systems-Pvt-Ltd-100068629621171/?locale=eo_EO" },
-          { Icon: FaTwitter, link: "https://twitter.com/swansorter1 "},
+          {
+            Icon: FaFacebookF,
+            link: "https://www.facebook.com/p/Swan-Sorter-Systems-Pvt-Ltd-100068629621171/?locale=eo_EO",
+          },
+          { Icon: FaTwitter, link: "https://twitter.com/swansorter1" },
           {
             Icon: FaLinkedinIn,
             link: "https://www.linkedin.com/company/swan-sorter-systems?originalSubdomain=in",
@@ -151,9 +148,9 @@ const Footerpage = () => {
         className="mt-8 border-t border-gray-200 pt-6 text-center"
       >
         <p className="text-gray-600">
-          © 2025, Swan Sorter System Pvt. Ltd. / All rights reserved.
+          © 2025, SwanSorter System Pvt. Ltd. / All rights reserved.
         </p>
-        <div className="mt-2 flex flex-wrap justify-center space-x-4">
+        <div className="mt-2 flex justify-center space-x-4">
           {["Privacy", "Terms", "Sitemap"].map((path) => (
             <Link
               key={path}

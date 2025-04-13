@@ -20,6 +20,7 @@ import Navbar from "../Components/NavbarLinks/Navbar";
 import Footerpage from "../Components/LandingPages/Footerpage";
 import ChatBot from "../Components/ChatBot/ChatBot";
 import AutoPopupChat from "../Components/LandingPages/AutoComponentspop";
+import OurClients from "../Components/LandingPages/OurClients";
 
 const Page = () => {
   return (
@@ -32,7 +33,7 @@ const Page = () => {
           Innovating the Sorter Industry Since 2014
         </h2>
         <p className="max-w-3xl text-left md:text-center mx-auto text-lg">
-          At Swan Sorter, we revolutionize the color sorter industry with
+          At SwanSorterSystem, we revolutionize the color sorter industry with
           cutting-edge technology, precision engineering, and a commitment to
           quality. Our advanced sorting solutions serve agriculture, food
           processing, and industrial materials.
@@ -93,7 +94,7 @@ const Page = () => {
       {/* Key Features */}
       <section className="p-10">
         <h2 className="text-center text-2xl font-semibold text-blue-700 mb-6">
-          Key Features of Swan Swift
+          Key Features of Swan
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
@@ -133,9 +134,9 @@ const Page = () => {
         </div>
       </section>
 
-         {/* Vision Statement Section */}
-         <section className="bg-white py-12 px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold  leading-snug mb-4">
+      {/* Vision Statement Section */}
+      <section className="bg-white py-12 px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-4">
           Innovation, Commitment to Customers,
           <br />
           Continuous Learning & Teamwork.
@@ -144,9 +145,9 @@ const Page = () => {
 
         <div className="max-w-4xl mx-auto text-gray-700 text-md md:text-lg space-y-4 text-left">
           <p>
-            Innovation in the sorter industry <strong>since 2014</strong>. Swan
-            Sorters started with a vision of manufacturing the best color sorter
-            machines in India, backed by experienced directors{" "}
+            Innovation in the sorter industry <strong>since 2014</strong>.
+            SwanSorterSystem started with a vision of manufacturing the best
+            color sorter machines in India, backed by experienced directors{" "}
             <strong>Mr. Shijo George & Mr. Vinayaka T.</strong>
           </p>
           <p>
@@ -158,44 +159,13 @@ const Page = () => {
         </div>
       </section>
 
-     
-
-  
-
       {/* Testimonials */}
-      <section className="p-10 bg-white text-center">
-        <h2 className="text-2xl font-semibold text-blue-700 mb-6">
-          What Our Clients Say
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {[
-            {
-              name: "Rakesh P.",
-              feedback:
-                "Swan Sorter helped increase our grain sorting speed by 40%. Outstanding quality!",
-            },
-            {
-              name: "Nguyen T.",
-              feedback:
-                "We’ve been using Swan sorters for over 3 years – precision and durability are unmatched.",
-            },
-          ].map((testi, idx) => (
-            <div
-              key={idx}
-              className="bg-gray-50 p-6 rounded-xl shadow-md border border-blue-100"
-            >
-              <FaHandshake className="text-3xl text-green-500 mx-auto mb-2" />
-              <p className="text-gray-600 italic mb-2">"{testi.feedback}"</p>
-              <p className="font-semibold text-gray-800">— {testi.name}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <OurClients />
 
       {/* Final CTA */}
       <section className="text-center p-10">
-        <h2 className="text-3xl font-bold  mb-4">
-          Why Choose Swan Sorter?
+        <h2 className="text-3xl font-bold mb-4">
+          Why Choose SwanSorterSystem?
         </h2>
         <p className="max-w-xl mx-auto text-gray-700 text-lg mb-6">
           With over a decade of industry expertise, global installations, and a
@@ -204,6 +174,73 @@ const Page = () => {
         <button className="px-6 py-3 bg-gradient-to-r from-green-500 to-blue-500 font-bold text-white rounded-full shadow hover:bg-blue-700 transition-all">
           <a href="/contact">Contact Us Today</a>
         </button>
+      </section>
+
+      {/* Our Committee Section */}
+      {/* Our Committee Section */}
+      <section className="bg-gray-100 py-10 px-6 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-blue-700 mb-6">
+          Our Committee
+        </h2>
+        <div className="max-w-4xl mx-auto text-gray-700 text-md md:text-lg space-y-4 text-left">
+          <p>
+            Our leadership and technical committee at Swan Sorter Systems Pvt.
+            Ltd. consists of seasoned professionals, researchers, and
+            innovators. With a shared mission of redefining the sorting
+            industry, the committee ensures our company adheres to strategic
+            innovation, sustainable manufacturing, and global quality
+            compliance.
+          </p>
+          <p>
+            They oversee advanced R&D, guide the integration of AI and
+            intelligent automation, and constantly drive improvement to maintain
+            Swan’s position as a pioneer in the color sorter industry.
+          </p>
+        </div>
+      </section>
+
+      {/* Add Visitor Section */}
+      <section className="bg-white py-10 px-6 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-green-700 mb-6">
+          Visitor Engagement
+        </h2>
+        <div className="max-w-4xl mx-auto text-gray-700 text-md md:text-lg space-y-4 text-left">
+          <p>
+            At Swan Sorter, we welcome potential clients, partners, and
+            enthusiasts to visit our advanced facility. Through live
+            demonstrations and in-depth walkthroughs, visitors can witness
+            firsthand the precision, quality, and innovation behind our
+            AI-powered color sorter machines.
+          </p>
+          <p>
+            Our open-door approach fosters transparency, trust, and
+            knowledge-sharing, allowing you to experience the Swan commitment to
+            excellence up close.
+          </p>
+        </div>
+      </section>
+
+      {/* Quality Standards Section */}
+      {/* Quality Standards Section */}
+      <section className="bg-gray-100 py-10 px-6 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-blue-700 mb-6">
+          Our Quality Standards
+        </h2>
+        <div className="max-w-4xl mx-auto text-gray-700 text-md md:text-lg space-y-4 text-left">
+          <p>
+            Quality is the cornerstone of Swan Sorter Systems Pvt. Ltd. We
+            deliver high-performance sorting solutions that not only comply with
+            global standards but exceed them through rigorous testing,
+            innovation, and customer-driven design.
+          </p>
+          <p>
+            From AI-driven automation to eco-friendly production, our machines
+            are built for precision, durability, and long-term reliability. Our
+            quality assurance includes strict control processes, global
+            certifications, and continuous improvement strategies to ensure
+            customer satisfaction at every level.
+          </p>
+        </div>
       </section>
 
       <ChatBot />

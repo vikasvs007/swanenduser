@@ -1,77 +1,55 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const AutoPopupChat = () => {
-  const [visible, setVisible] = useState(false);
-  const [messageIndex, setMessageIndex] = useState(0);
-
-  const messages = [
-    {
-      title: "✨ Enhance Your Workflow",
-      subtitle: "Smart AI-Powered Sorting Machines",
-      note: "Let our intelligent systems optimize your production.",
-      image: "/img1.jpeg",
-    },
-    {
-      title: "🚀 Boost Efficiency & Accuracy",
-      subtitle: "Tailored solutions for every industry",
-      note: "Reach out and discover the perfect match.",
-      image: "/img4.jpeg",
-    },
-    {
-      title: "🔧 We Build. You Scale.",
-      subtitle: "Custom sorting for your unique needs",
-      note: "Consult our team for free today!",
-      image: "/img3.jpg",
-    },
-  ];
+  const [show, setShow] = useState(false);
+  const [i, setI] = useState(0);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    const delay = Math.floor(Math.random() * 10000) + 10000; // 10–20 seconds
-    const initialTimer = setTimeout(() => {
-      setVisible(true);
-    }, delay);
-
-    return () => clearTimeout(initialTimer);
+    axios
+      .get("https://swanbackend.onrender.com/api/cards")
+      .then((res) => setData(res.data))
+      .catch((err) => console.error("Message fetch error:", err));
   }, []);
 
-  const handleClose = () => {
-    setVisible(false);
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (data.length) setShow(true);
+    }, 60000);
+    return () => clearTimeout(t);
+  }, [data]);
+
+  const close = () => {
+    setShow(false);
     setTimeout(() => {
-      setMessageIndex((prev) => (prev + 1) % messages.length);
-      setVisible(true);
-    }, 15000);
+      setI((prev) => (prev + 1) % data.length);
+      setShow(true);
+    }, 60000);
   };
 
-  const current = messages[messageIndex];
+  if (!data.length) return null;
+  const msg = data[i];
 
   return (
     <div
-      className={`fixed bottom-6 left-6 transition-all duration-500 ease-in-out z-[999999999] ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+      className={`fixed bottom-3 left-3 z-[9999] transition-all duration-500 ${
+        show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
       }`}
     >
-      <div className="bg-white border shadow-2xl rounded-3xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl text-gray-800 overflow-hidden relative">
-        <img
-          src={current.image}
-          alt="Popup Banner"
-          className="w-[50%] m-auto h-40 sm:h-52 md:h-56 object-cover"
-        />
-        <div className="p-6">
-          <h4 className="font-bold text-xl sm:text-2xl mb-1">{current.title}</h4>
-          <p className="text-base sm:text-lg mb-1">{current.subtitle}</p>
-          <p className="text-sm sm:text-base text-gray-600 mb-3">{current.note}</p>
-          <a
-            href="/contact"
-            className="text-blue-600 hover:underline text-sm sm:text-base font-medium"
-          >
+      <div className="bg-white border rounded-xl w-[150px] sm:w-[180px] text-gray-800 shadow-md relative">
+        <img src={msg.image} alt="Banner" className="w-full h-28 object-contain" />
+        <div className="p-3">
+          <h4 className="text-sm font-semibold">{msg.title}</h4>
+          <p className="text-xs">{msg.message}</p>
+          <a href="/contact" className="text-blue-600 hover:underline text-xs font-medium">
             Chat Now →
           </a>
         </div>
         <button
-          className="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-xl"
-          onClick={handleClose}
+          className="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-sm"
+          onClick={close}
         >
           ✕
         </button>

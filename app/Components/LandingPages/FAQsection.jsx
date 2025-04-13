@@ -39,21 +39,21 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-gray-100 to-white py-16 px-6 md:px-16">
+    <section className="bg-white py-16 px-6 md:px-16">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-6xl font-bold text-gray-700">
           Frequently Asked <span className="text-[#9253FF]">Questions</span>
         </h2>
       </div>
 
-      <div className="max-w-6xl mx-auto mt-10 space-y-4">
+      <div className="max-w-6xl mx-auto mt-10 space-y-4 font-bold">
         {faqs.map((faq, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="border border-gray-300 rounded-lg overflow-hidden"
+            className="border font-bold border-gray-300 rounded-lg overflow-hidden"
           >
             <button
               className="w-full flex justify-between items-center text-left px-6 py-4 bg-gray-100 hover:bg-gray-200 focus:outline-none"

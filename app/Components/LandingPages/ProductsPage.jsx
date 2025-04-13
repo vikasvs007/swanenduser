@@ -10,134 +10,90 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const products = [
   {
-    id: 1,
-    name: "Swan 2 Chute (128 Channels) box type",
-    description: "We manufacture high-quality Dal Color Sorter Machines.",
-    image: "/img3.Jpg",
-    video: "/Video1.mp4",
-    link: "/Products/pro2",
-    orderLink:"/Orders"
-  },
-  // {
-  //   id: 2,
-  //   name: "Swan 1 300 belt type ms frame",
-  //   description: "Premium sorting technology for precision sorting.",
-  //   image: "/img1.jpeg",
-  //   video: "/Video1.mp4",
-  //   link: "/Products/pro1",
-  //   orderLink:"/contact"
-  // },
-  {
-    id: 3,
-    name: "Swan 3 Chute (192 Channels)",
-    description: "Enhance sorting efficiency with AI-powered technology.",
-    image: "/img6.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro3",
-    orderLink:"/Orders"
-  },
-  // {
-  //   id: 4,
-  //   name: "Swan  2 chute 128 channel box type",
-  //   description:
-  //     "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
-  //   image: "/img5.jpeg",
-  //   video: "/Video1.mp4",
-  //   link: "/Products/pro4",
-  //   orderLink:"/contact"
-  // },
-  {
-    id: 5,
-    name: "Swan 5 Chute (320 Channels)",
-    description: "We manufacture high-quality Dal Color Sorter Machines.",
-    image: "/img4.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro5",
-    orderLink:"/Orders"
-  },
-  // {
-  //   id: 6,
-  //   name: "Swan 8 Chute (512 Channels)",
-  //   description: "Premium sorting technology for precision sorting.",
-  //   image: "/img2.jpeg",
-  //   video: "/Video1.mp4",
-  //   link: "/Products/pro6"
-  // },
-  {
-    id: 7,
-    name: "Swan 5 Chute (320 Channels)",
-    description: "Enhance sorting efficiency with AI-powered technology.",
-    image: "/img7.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro6",
-    orderLink:"/Orders"
-  },
-  {
-    id: 8,
-    name: "Swan 8 Chute (512 Channels)",
-    description:
-      "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
-    image: "/img8.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro7",
-    orderLink:"/Orders"
-  }, 
-  {
     id: 9,
-    name: "Swan 1 Chute (64 Channels)",
+    name: "Swan RGB AI 1 Chute ",
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img9.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro8",
-    orderLink:"/Orders"
+    orderLink: "/Orders"
   },
-  {
-    id: 10,
-    name: "Swan RGB AI 10 chute (640 channel)",
-    description: "Premium sorting technology for precision sorting.",
-    image: "/img10.jpeg",
-    video: "/Video1.mp4",
-    link: "/Products/pro9",
-    orderLink:"/Orders"
-  },
-  // {
-  //   id: 11,
-  //   name: "Swan 600 MM belt Type machine",
-  //   description: "Enhance sorting efficiency with AI-powered technology.",
-  //   image: "/img11.jpeg",
-  //   video: "/Video1.mp4",
-  //   link: "/Products/pro10",
-  //   orderLink:"/contact"
-  // },
   {
     id: 12,
-    name: "Swan 1 chute 64 channel ms/ss frame",
+    name: "Swan RGB AI 1 channel ms/ss frame",
     description:
-      "We are well known as the reputed organization in this field of operation, engaged in manufacturing wide array of excellent quality Dal color Sorter Machine.",
+      "We are well known as the reputed organization in this field of operation,",
     image: "/img12.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro11",
-    orderLink:"/Orders"
+    orderLink: "/Orders"
   },
-  // {
-  //   id: 13,
-  //   name: "Swan RGB AI 10chute 640 channel",
-  //   description: "Enhance sorting efficiency with AI-powered technology.",
-  //   image: "/img13.jpeg",
-  //   video: "/Video1.mp4",
-  //   link: "/Products/pro12",
-  //   orderLink:"/contact"
-  // },
   {
-    id: 14,
-    name: "Swan 5 Chute (320 Channels) ",
+    id: 1,
+    name: "Swan RGB AI 2 Chute  box type",
+    description: "We manufacture high-quality Dal Color Sorter Machines.",
+    image: "/img3.Jpg",
+    video: "/Video1.mp4",
+    link: "/Products/pro2",
+    orderLink: "/Orders"
+  },
+  {
+    id: 3,
+    name: "Swan RGB AI 3 Chute",
+    description: "Enhance sorting efficiency with AI-powered technology.",
+    image: "/img6.jpeg",
+    video: "/Video1.mp4",
+    link: "/Products/pro3",
+    orderLink: "/Orders"
+  },
+  {
+    id: 5,
+    name: "Swan RGB AI 5 Chute",
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img4.jpeg",
     video: "/Video1.mp4",
     link: "/Products/pro5",
-    orderLink:"/Orders"
+    orderLink: "/Orders"
+  },
+  {
+    id: 7,
+    name: "Swan RGB AI 5 Chute ",
+    description: "Enhance sorting efficiency with AI-powered technology.",
+    image: "/img7.jpeg",
+    video: "/Video1.mp4",
+    link: "/Products/pro6",
+    orderLink: "/Orders"
+  },
+  {
+    id: 14,
+    name: "Swan RGB AI 5 Chute  ",
+    description: "We manufacture high-quality Dal Color Sorter Machines.",
+    image: "/img4.jpeg",
+    video: "/Video1.mp4",
+    link: "/Products/pro5",
+    orderLink: "/Orders"
+  },
+  {
+    id: 8,
+    name: "Swan RGB AI 8 Chute ",
+    description:
+      "We are well known as the reputed organization ",
+    image: "/img8.jpeg",
+    video: "/Video1.mp4",
+    link: "/Products/pro7",
+    orderLink: "/Orders"
+  },
+  {
+    id: 10,
+    name: "Swan RGB AI 10 chute",
+    description: "Premium sorting technology for precision sorting.",
+    image: "/img10.jpeg",
+    video: "/Video1.mp4",
+    link: "/Products/pro9",
+    orderLink: "/Orders"
   }
 ];
+
 
 const ProductsPage = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);

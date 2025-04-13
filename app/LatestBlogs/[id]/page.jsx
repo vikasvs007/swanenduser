@@ -33,9 +33,8 @@ const BlogDetailPage = async (props) => {
       <Navbar />
 
       <main className="flex-grow bg-white py-8 px-4 md:px-8">
-        {/* Heading Section */}
         {/* Enhanced Heading Section */}
-        <div className="max-w-4xl mx-auto text-center mb-12">
+        <div className="w-full text-center mb-12">
           <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-[#8E54FF] to-[#4A00E0] bg-clip-text text-transparent mb-4 drop-shadow-sm">
             Discover Our Blogs
           </h2>
@@ -45,9 +44,10 @@ const BlogDetailPage = async (props) => {
           <div className="mt-4 w-24 h-1 mx-auto bg-gradient-to-r from-[#8E54FF] to-[#4A00E0] rounded-full" />
         </div>
 
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300">
+        {/* Shared Container for Image and Content */}
+        <div className="w-full max-w-6xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
           {/* Blog Image */}
-          <div className="w-full h-68 md:h-80 relative">
+          <div className="relative w-full aspect-video">
             <Image
               src={
                 blog.featured_image?.startsWith("data:image")
@@ -57,12 +57,12 @@ const BlogDetailPage = async (props) => {
               alt={blog.title}
               fill
               priority
-              className="object-contain w-full transition-transform duration-300 hover:scale-105"
+              className="object-contain transition-transform duration-300 hover:scale-105 rounded-t-2xl"
             />
           </div>
 
           {/* Blog Content */}
-          <div className="p-5 sm:p-8">
+          <div className="p-6 sm:p-10">
             <h1 className="text-2xl sm:text-4xl font-extrabold text-gray-800 mb-4 leading-tight">
               {blog.title}
             </h1>
@@ -80,6 +80,7 @@ const BlogDetailPage = async (props) => {
           </div>
         </div>
       </main>
+
 
       <Footerpage />
     </div>

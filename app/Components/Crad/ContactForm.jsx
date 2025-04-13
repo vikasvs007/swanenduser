@@ -6,9 +6,9 @@ import axios from "axios";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
-  const [subject, setSubject] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [subject, setProduct] = useState(""); // 🆕 product field
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
@@ -18,20 +18,23 @@ export default function ContactForm() {
       name,
       email,
       phone,
+      subject, // 🆕 include product
       message,
-      subject,
     };
 
     try {
-      const response = await axios.post("https://swanbackend.onrender.com/api/enquiries", formData);
-    
+      const response = await axios.post(
+        "https://swanbackend.onrender.com/api/enquiries",
+        formData
+      );
+
       if (response.status === 200 || response.status === 201) {
         toast.success("Message sent successfully!");
         console.log("Response:", response.data);
         setName("");
-        setSubject("");
         setEmail("");
         setPhone("");
+        setProduct(""); // 🆕 reset
         setMessage("");
       } else {
         console.error("Unexpected response:", response);
@@ -39,16 +42,17 @@ export default function ContactForm() {
       }
     } catch (error) {
       console.error("Error occurred while sending message:", error);
-      toast.error(error.response?.data?.message || "Failed to send. Please try again later.");
+      toast.error(
+        error.response?.data?.message || "Failed to send. Please try again later."
+      );
     }
-    
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
       <Toaster position="top-right" reverseOrder={false} />
       <div className="max-w-4xl w-full bg-white border border-gray-300 rounded-xl p-8">
-        <h2 className="text-center text-4xl font-bold">Contact Us</h2>
+        <h2 className="text-center text-4xl font-bold">Enquire Now</h2>
         <p className="text-center text-lg text-gray-600 mt-2">
           Are you interested in this product? Let us know!
         </p>
@@ -68,18 +72,6 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label className="block text-gray-700 font-semibold">Subject</label>
-              <input
-                type="text"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                placeholder="Subject"
-                className="w-full border border-gray-300 focus:border-blue-500 focus:outline-none py-3 px-4 text-gray-800 rounded-md"
-                required
-              />
-            </div>
-
-            <div>
               <label className="block text-gray-700 font-semibold">Email</label>
               <input
                 type="email"
@@ -91,13 +83,26 @@ export default function ContactForm() {
               />
             </div>
 
-            <div>
+            <div className="sm:col-span-2">
               <label className="block text-gray-700 font-semibold">Phone Number</label>
               <input
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Phone Number"
+                className="w-full border border-gray-300 focus:border-blue-500 focus:outline-none py-3 px-4 text-gray-800 rounded-md"
+                required
+              />
+            </div>
+
+            {/* 🆕 Product Field */}
+            <div className="sm:col-span-2">
+              <label className="block text-gray-700 font-semibold">Product</label>
+              <input
+                type="text"
+                value={product}
+                onChange={(e) => setProduct(e.target.value)}
+                placeholder="Enter the product you're interested in"
                 className="w-full border border-gray-300 focus:border-blue-500 focus:outline-none py-3 px-4 text-gray-800 rounded-md"
                 required
               />

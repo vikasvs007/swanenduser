@@ -27,7 +27,7 @@ const Latestnews = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-full bg-gradient-to-r from-gray-100 to-white">
+    <div className="w-full min-h-full bg-white">
       <motion.section
         className="w-full py-12"
         initial={{ opacity: 0, y: 50 }}

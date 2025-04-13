@@ -15,6 +15,7 @@ import Latestnews from "./LandingPages/Latestnews";
 import FAQSection from "./LandingPages/FAQsection";
 import VisitorPopup from "../Components/VisitorPages/Visitor";
 import AutoPopupChat from "./LandingPages/AutoComponentspop";
+import OurClients from "./LandingPages/OurClients";
 
 const Main = () => {
   const [popupOpen, setPopupOpen] = useState(false);
@@ -48,14 +49,15 @@ const Main = () => {
         <>
           <Hero />
           <TechnologyPage />
-          <Latestnews />
+          <ProductsPage />
           <OurAims />
           <BusinessGrowthBanner />
-          <ProductsPage />
           <AboutUsPage />
-          <TeamSection />
-          <FAQSection />
+          {/* <TeamSection /> */}
           <Gallery />
+          <Latestnews />
+          <FAQSection />
+          <OurClients/>
           <Footerpage />
           <ChatBot />
           <AutoPopupChat />

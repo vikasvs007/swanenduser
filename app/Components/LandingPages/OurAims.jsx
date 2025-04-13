@@ -52,10 +52,13 @@ const OurAims = () => {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-purple-600">Quality Standards</h2>
+          <h2 className="text-3xl font-bold text-purple-600">
+            Quality Standards
+          </h2>
           <p className="mt-4 text-gray-600 text-lg">
-            Swan Sorter is committed to providing high-quality products and services that meet customer
-            requirements with relevant industry standards, ensuring long-term commitments and customer satisfaction.
+            Swan Sorter is committed to providing high-quality products and
+            services that meet customer requirements with relevant industry
+            standards, ensuring long-term commitments and customer satisfaction.
           </p>
         </motion.div>
 
@@ -69,8 +72,9 @@ const OurAims = () => {
         >
           <h2 className="text-3xl font-bold">Our Vision</h2>
           <p className="mt-4 text-white text-opacity-90 text-lg">
-            To become the leader in manufacturing of color sorters as per international standards and generate global
-            demand for color sorter machines.
+            To become the leader in manufacturing of color sorters as per
+            international standards and generate global demand for color sorter
+            machines.
           </p>
         </motion.div>
       </div>
@@ -101,15 +105,21 @@ const OurAims = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5 }}
-                className={`md:flex items-center md:justify-between ${index % 2 === 0 ? "" : "flex-row-reverse"}`}
+                className={`md:flex items-center md:justify-between ${
+                  index % 2 === 0 ? "" : "flex-row-reverse"
+                }`}
               >
                 {/* Timeline Item */}
                 <div
                   className={`md:w-5/12 p-6 rounded-lg shadow-lg text-lg ${
-                    item.highlight ? "bg-white text-gray-800" : "bg-white text-gray-800"
+                    item.highlight
+                      ? "bg-white text-gray-800"
+                      : "bg-white text-gray-800"
                   }`}
                 >
-                  <h3 className="text-2xl font-bold text-green-400">{item.year}</h3>
+                  <h3 className="text-2xl font-bold text-green-400">
+                    {item.year}
+                  </h3>
                   <p className="font-semibold">{item.text}</p>
                 </div>
 
@@ -131,22 +141,31 @@ const OurAims = () => {
       </section>
 
       {/* Marquee Statistics Section */}
-      <div className="w-full bg-gradient-to-r from-green-100 to-blue-100 py-3 my-3 shadow-lg rounded-lg">
-        <Marquee speed={50} pauseOnHover={true} gradient={false}>
-          <div className="text-center mx-10 text-green-700 font-extrabold text-3xl flex items-center gap-2">
-            🚀 1500+{" "}
-            <span className="text-gray-700 font-medium text-xl">Sorter Machines Installed</span>
-          </div>
-          <div className="text-center mx-10 text-blue-700 font-extrabold text-3xl flex items-center gap-2">
-            ⏳ 16+ Years{" "}
-            <span className="text-gray-700 font-medium text-xl">Of Combined Experience</span>
-          </div>
-          <div className="text-center mx-10 text-purple-700 font-extrabold text-3xl flex items-center gap-2">
-            👨‍💻 45+ Highly{" "}
-            <span className="text-gray-700 font-medium text-xl">Qualified Team of Engineers</span>
-          </div>
-        </Marquee>
-      </div>
+      <a href="/Solutions" className="block">
+        <div className="w-full bg-gradient-to-r from-green-100 to-blue-100 py-3 my-3 shadow-lg rounded-lg">
+          {/* Text Marquee */}
+          <Marquee speed={50} pauseOnHover={true} gradient={false}>
+            <div className="text-center mx-10 text-green-700 font-extrabold text-3xl flex items-center gap-2">
+              🚀 1500+
+              <span className="text-gray-700 font-medium text-xl">
+                Sorter Machines Installed
+              </span>
+            </div>
+            <div className="text-center mx-10 text-blue-700 font-extrabold text-3xl flex items-center gap-2">
+              ⏳ 16+ Years
+              <span className="text-gray-700 font-medium text-xl">
+                Of Combined Experience
+              </span>
+            </div>
+            <div className="text-center mx-10 text-purple-700 font-extrabold text-3xl flex items-center gap-2">
+              👨‍💻 45+ Highly
+              <span className="text-gray-700 font-medium text-xl">
+                Qualified Team of Engineers
+              </span>
+            </div>
+          </Marquee>
+        </div>
+      </a>
     </div>
   );
 };
