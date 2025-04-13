@@ -22,21 +22,19 @@ const Main = () => {
   const [showLanding, setShowLanding] = useState(false);
 
   useEffect(() => {
-    const popupShown = localStorage.getItem("popupShown");
-
     // Show landing page immediately
     setShowLanding(true);
 
-    // Delay popup if not shown before
-    if (popupShown !== "true") {
-      const timer = setTimeout(() => {
-        setPopupOpen(true);
-        localStorage.setItem("popupShown", "true");
-      }, 5000); // 5 seconds delay
+    // Show popup immediately without checking localStorage
+    // This ensures it always appears for testing
+    const timer = setTimeout(() => {
+      setPopupOpen(true);
+      // We can keep this line for production, or remove it for testing
+      // localStorage.setItem("popupShown", "true");
+    }, 1000); // Reduced to 1 second delay for faster testing
 
-      // Cleanup timer
-      return () => clearTimeout(timer);
-    }
+    // Cleanup timer
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClosePopup = () => {

@@ -8,7 +8,7 @@ export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [subject, setProduct] = useState(""); // 🆕 product field
+  const [subject, setSubject] = useState(""); // 🆕 product field
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
@@ -34,7 +34,7 @@ export default function ContactForm() {
         setName("");
         setEmail("");
         setPhone("");
-        setProduct(""); // 🆕 reset
+        setSubject(""); // 🆕 reset
         setMessage("");
       } else {
         console.error("Unexpected response:", response);
@@ -100,8 +100,8 @@ export default function ContactForm() {
               <label className="block text-gray-700 font-semibold">Product</label>
               <input
                 type="text"
-                value={product}
-                onChange={(e) => setProduct(e.target.value)}
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
                 placeholder="Enter the product you're interested in"
                 className="w-full border border-gray-300 focus:border-blue-500 focus:outline-none py-3 px-4 text-gray-800 rounded-md"
                 required

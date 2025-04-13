@@ -37,48 +37,71 @@ const languages = [
 const GoogleTranslateDropdown = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showAll, setShowAll] = useState(false);
+  const [translationError, setTranslationError] = useState(false);
 
   useEffect(() => {
-    if (!window.googleTranslateElementInit) {
-      window.googleTranslateElementInit = () => {
-        if (window.google && window.google.translate) {
+    // Define the callback function
+    window.googleTranslateElementInit = () => {
+      try {
+        if (
+          window.google && 
+          window.google.translate && 
+          typeof window.google.translate.TranslateElement === 'function'
+        ) {
           new window.google.translate.TranslateElement(
             { pageLanguage: "en", autoDisplay: false },
             "google_translate_element"
           );
+          setTranslationError(false);
+        } else {
+          console.warn("Google Translate not fully loaded yet");
+          setTranslationError(true);
         }
-      };
+      } catch (error) {
+        console.error("Error initializing Google Translate:", error);
+        setTranslationError(true);
+      }
+    };
 
+    // Add error handler for script loading
+    const handleScriptError = () => {
+      console.error("Failed to load Google Translate script");
+      setTranslationError(true);
+    };
+
+    // Only load script if it doesn't exist
+    if (!document.getElementById("google-translate-script")) {
       const script = document.createElement("script");
       script.src =
         "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
       script.id = "google-translate-script";
       script.async = true;
       script.defer = true;
-      script.onload = () => {
-        if (window.googleTranslateElementInit) {
-          window.googleTranslateElementInit();
-        }
-      };
+      script.onerror = handleScriptError;
 
       document.body.appendChild(script);
+    } else if (window.google && window.google.translate) {
+      // If script exists but might not have initialized yet
+      window.googleTranslateElementInit();
     }
 
     return () => {
-      const existingScript = document.getElementById("google-translate-script");
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
+      // Cleanup is optional - removing the script can cause issues with translations
+      // if other parts of the app still need it
     };
   }, []);
 
   const changeLanguage = (lang) => {
-    const googleSelect = document.querySelector(".goog-te-combo");
-    if (googleSelect) {
-      googleSelect.value = lang;
-      googleSelect.dispatchEvent(new Event("change"));
-    } else {
-      console.error("Google Translate dropdown not found!");
+    try {
+      const googleSelect = document.querySelector(".goog-te-combo");
+      if (googleSelect) {
+        googleSelect.value = lang;
+        googleSelect.dispatchEvent(new Event("change"));
+      } else {
+        console.error("Google Translate dropdown not found!");
+      }
+    } catch (error) {
+      console.error("Error changing language:", error);
     }
   };
 
@@ -98,30 +121,44 @@ const GoogleTranslateDropdown = () => {
       {/* Dropdown */}
       {showDropdown && (
         <div className="absolute top-12 right-0 z-50 bg-gradient-to-r from-[#1f3d3b] to-[#2b4a48] text-white p-3 rounded-md shadow-lg border w-52">
-          <ul
-            className={`space-y-2 ${
-              showAll ? "max-h-64 overflow-y-auto pr-1" : ""
-            }`}
-          >
-            {(showAll ? languages : languages.slice(0, 4)).map((lang) => (
-              <li key={lang.code}>
-                <button
-                  onClick={() => changeLanguage(lang.code)}
-                  className="block w-full text-left px-3 py-1 hover:scale-105 rounded-md"
-                >
-                  {lang.name}
-                </button>
-              </li>
-            ))}
-          </ul>
+          {translationError ? (
+            <div className="text-center py-2">
+              <p className="text-sm">Translation service unavailable</p>
+              <button
+                onClick={() => setShowDropdown(false)}
+                className="mt-2 text-xs text-blue-200 hover:text-white"
+              >
+                Close
+              </button>
+            </div>
+          ) : (
+            <>
+              <ul
+                className={`space-y-2 ${
+                  showAll ? "max-h-64 overflow-y-auto pr-1" : ""
+                }`}
+              >
+                {(showAll ? languages : languages.slice(0, 4)).map((lang) => (
+                  <li key={lang.code}>
+                    <button
+                      onClick={() => changeLanguage(lang.code)}
+                      className="block w-full text-left px-3 py-1 hover:scale-105 rounded-md"
+                    >
+                      {lang.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
 
-          {!showAll && (
-            <button
-              onClick={() => setShowAll(true)}
-              className="mt-3 text-center w-full text-sm text-blue-200 hover:text-white hover:underline"
-            >
-              Read More →
-            </button>
+              {!showAll && (
+                <button
+                  onClick={() => setShowAll(true)}
+                  className="mt-3 text-center w-full text-sm text-blue-200 hover:text-white hover:underline"
+                >
+                  Read More →
+                </button>
+              )}
+            </>
           )}
         </div>
       )}
