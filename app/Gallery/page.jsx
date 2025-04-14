@@ -7,17 +7,17 @@ import ChatBot from "../Components/ChatBot/ChatBot";
 import AutoPopupChat from "../Components/LandingPages/AutoComponentspop";
 
 const galleryImages = [
-  { src: "/gallery/events1.jpg", alt: "Event 1", category: "Events" },
-  { src: "/gallery/team1.jpg", alt: "Team 1", category: "Team" },
-  { src: "/gallery/office1.jpg", alt: "Office 1", category: "Office" },
-  { src: "/gallery/manufacture1.jpg", alt: "Manufacturing 1", category: "Manufacture" },
-  { src: "/gallery/team2.jpg", alt: "Team 2", category: "Team" },
-  { src: "/gallery/events2.jpg", alt: "Event 2", category: "Events" },
-  { src: "/gallery/office2.jpg", alt: "Office 2", category: "Office" },
-  { src: "/gallery/manufacture2.jpg", alt: "Manufacturing 2", category: "Manufacture" },
-  { src: "/gallery/workshop1.jpg", alt: "Workshop 1", category: "Workshop" },
-  { src: "/gallery/admin1.jpg", alt: "Administer 1", category: "Administer" },
-  { src: "/gallery/production1.jpg", alt: "Production 1", category: "Production" },
+  { src: "/event1.jpg", alt: "Event 1", category: "Events" },
+  { src: "/heap-macadamia-nuts-with-shells_493806-12754.webp", alt: "Team 1", category: "Team" },
+  { src: "/img5.jpeg", alt: "Office 1", category: "Office" },
+  { src: "/img6.jpeg", alt: "Manufacturing 1", category: "Manufacture" },
+  { src: "/img7.jpeg", alt: "Team 2", category: "Team" },
+  { src: "/img8.jpeg", alt: "Event 2", category: "Events" },
+  { src: "/img9.jpeg", alt: "Office 2", category: "Office" },
+  { src: "/img10.jpeg", alt: "Manufacturing 2", category: "Manufacture" },
+  { src: "/img11.jpeg", alt: "Workshop 1", category: "Workshop" },
+  { src: "/img12.jpeg", alt: "Administer 1", category: "Administer" },
+  { src: "/photo-1508061253366-f7da158b6d46.avif", alt: "Production 1", category: "Production" },
 ];
 
 const GalleryPage = () => {

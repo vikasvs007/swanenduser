@@ -7,6 +7,7 @@ const languages = [
   { code: "en", name: "English" },
   { code: "hi", name: "Hindi" },
   { code: "bn", name: "Bengali" },
+  { code: "kn", name: "Kannada" },
   { code: "te", name: "Telugu" },
   { code: "mr", name: "Marathi" },
   { code: "ta", name: "Tamil" },

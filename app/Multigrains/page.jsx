@@ -133,7 +133,7 @@ const solutions = [
             }
           },
           {
-            "src": "/photo-1613045935265-265ff612e0e2.webp",
+            "src": "/images/remium Rice.jpeg",
             "title": "Premium Rice",
             "details": {
               "points": [

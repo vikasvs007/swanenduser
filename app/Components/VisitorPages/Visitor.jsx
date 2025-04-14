@@ -3,6 +3,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+// Debug flag to help troubleshoot
+const DEBUG = true;
+
 const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
   const [loading, setLoading] = useState(false);
   const [collected, setCollected] = useState(false);
@@ -26,8 +29,76 @@ const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
     visit_count: 1,
   });
 
+  // Helper function for debugging
+  const debugLog = (message) => {
+    if (DEBUG) {
+      console.log(`VisitorPopup: ${message}`);
+    }
+  };
+  
+  // This effect runs when the component mounts to capture page refreshes and first visits
+  useEffect(() => {
+    debugLog("Component mounted - checking if data collection is needed");
+    
+    const checkAndCollectData = () => {
+      // Detect page refresh (different methods for compatibility)
+      const isPageRefresh = 
+        (window.performance && window.performance.navigation && window.performance.navigation.type === 1) ||
+        (performance.getEntriesByType && 
+         performance.getEntriesByType('navigation').length > 0 && 
+         performance.getEntriesByType('navigation')[0].type === 'reload');
+    
+      // Get timestamps and check flags
+      const lastCollectionTime = localStorage.getItem('visitorLastCollectionTime');
+      const currentTime = new Date().getTime();
+      const isFirstVisitEver = !localStorage.getItem('visitorFirstVisitComplete');
+      
+      debugLog(`Page refresh detected: ${isPageRefresh}`);
+      debugLog(`First visit status: ${isFirstVisitEver ? 'First visit' : 'Returning visit'}`);
+      debugLog(`Last collection time: ${lastCollectionTime ? new Date(parseInt(lastCollectionTime)).toLocaleString() : 'Never'}`);
+      
+      // Check if we need to collect data:
+      // 1. It's a first visit ever (always collect), OR
+      // 2. We haven't collected data yet this session, OR
+      // 3. It's been >15 minutes since last collection
+      const timeSinceLastCollection = lastCollectionTime ? (currentTime - parseInt(lastCollectionTime)) : Infinity;
+      const needsCollection = isFirstVisitEver || !lastCollectionTime || timeSinceLastCollection > 900000;
+      
+      debugLog(`Needs collection: ${needsCollection}, Time since last: ${Math.floor(timeSinceLastCollection/1000/60)} minutes`);
+      
+      // ALWAYS collect on first visit (regardless of refresh or not)
+      if (isFirstVisitEver) {
+        debugLog("First visit ever - collecting data and showing popup");
+        // Show popup on first visit (false = not silent)
+        getVisitorInfo(false);
+        // Mark first visit as complete 
+        localStorage.setItem('visitorFirstVisitComplete', 'true');
+        localStorage.setItem('visitorLastCollectionTime', currentTime.toString());
+      }
+      // For returning visitors, only collect on page refresh with 15-min interval
+      else if (isPageRefresh && (needsCollection)) {
+        debugLog("Returning visit with refresh - collecting data silently (15-min interval)");
+        // Collect silently
+        getVisitorInfo(true);
+        // Update timestamp 
+        localStorage.setItem('visitorLastCollectionTime', currentTime.toString());
+      }
+      
+      // Mark data as collected for this session to prevent duplicates
+      sessionStorage.setItem('visitorDataCollected', 'true');
+    };
+    
+    // Force data collection to run after a slight delay to ensure browser is ready
+    setTimeout(() => {
+      checkAndCollectData();
+    }, 500);
+    
+  }, []); // Empty dependency array means it runs once on mount
+
   useEffect(() => {
     if (visitor && isEdit) {
+      debugLog("Edit mode - loading visitor data into form");
+      // Only set form data if in edit mode
       setFormData({
         ip_address: visitor.ip_address || "",
         device_info: visitor.device_info || "",
@@ -43,8 +114,21 @@ const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
         referrer: visitor.referrer || "",
         visit_count: visitor.visit_count || 1,
       });
-    } else if (open && !collected) {
-      getVisitorInfo();
+    } else if (open && !collected && !isEdit) {
+      // Handle the case when the popup attempts to open in non-edit mode
+      const isFirstVisitEver = !localStorage.getItem('visitorFirstVisitComplete');
+      
+      debugLog(`Popup opened: isFirstVisitEver=${isFirstVisitEver}`);
+      
+      // Allow the popup to be shown on first visit, close it otherwise
+      if (!isFirstVisitEver) {
+        debugLog("Not first visit - closing popup");
+        if (typeof onClose === 'function') {
+          onClose();
+        }
+      } else {
+        debugLog("First visit - allowing popup to show");
+      }
     }
   }, [visitor, isEdit, open]);
 
@@ -84,7 +168,8 @@ const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
     return 'Desktop';
   };
 
-  const getVisitorInfo = async () => {
+  const getVisitorInfo = async (isBackground = false) => {
+    debugLog(`getVisitorInfo called - silent mode: ${isBackground}`);
     setLoading(true);
     try {
       let ip = "";
@@ -100,11 +185,15 @@ const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
       const deviceInfo = detectDevice(userAgent);
       const referrer = document.referrer || '';
 
+      debugLog(`Browser detected: ${browser}, OS: ${os}, Device: ${deviceInfo}`);
+
       // Try to get IP address
       try {
+        debugLog("Fetching IP address");
         const ipResponse = await fetch('https://api.ipify.org?format=json');
         const ipData = await ipResponse.json();
         ip = ipData.ip;
+        debugLog(`IP address: ${ip}`);
       } catch (error) {
         console.error("Error getting IP:", error);
         ip = "127.0.0.1";
@@ -112,6 +201,7 @@ const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
       
       // Try to get location
       if (locationEnabled && navigator.geolocation) {
+        debugLog("Attempting to get geolocation");
         setFetchingLocation(true);
         
         try {
@@ -126,6 +216,7 @@ const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
           latitude = position.coords.latitude;
           longitude = position.coords.longitude;
           coordinates = [longitude, latitude]; // GeoJSON format
+          debugLog(`Geolocation: lat=${latitude}, long=${longitude}`);
           
           // Try to get location names from coordinates
           try {
@@ -134,6 +225,7 @@ const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
             
             country = geoData.address?.country || "";
             city = geoData.address?.city || geoData.address?.town || geoData.address?.village || "";
+            debugLog(`Location: ${city}, ${country}`);
           } catch (geoError) {
             // If that fails, try ipapi.co
             try {
@@ -143,6 +235,7 @@ const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
               if (!locationData.error) {
                 country = locationData.country_name || "";
                 city = locationData.city || "";
+                debugLog(`IP-based location: ${city}, ${country}`);
               }
             } catch (ipLocationError) {
               console.error("Location services failed:", ipLocationError);
@@ -154,12 +247,14 @@ const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
           
           // Try IP-based location as fallback
           try {
+            debugLog("Falling back to IP-based geolocation");
             const geoResponse = await fetch('https://ipwho.is/');
             const geoData = await geoResponse.json();
             
             if (geoData.success !== false) {
               country = geoData.country || "";
               city = geoData.city || "";
+              debugLog(`IP fallback location: ${city}, ${country}`);
             }
           } catch (ipGeoError) {
             console.error("IP geolocation failed:", ipGeoError);
@@ -183,20 +278,39 @@ const VisitorPopup = ({ open, onClose, visitor = null, isEdit = false }) => {
         },
         referrer,
         visit_count: 1,
+        page_url: window.location.pathname, // Add current page URL
+        timestamp: new Date().toISOString(), // Add timestamp
       };
       
+      debugLog("Setting form data with collected information");
       setFormData(payload);
 
-      const res = await axios.post("https://swanbackend.onrender.com/api/visitors", payload);
-
-      if (res.status === 201 || res.status === 200) {
-        console.log("✅ Visitor info submitted:", payload);
+      try {
+        debugLog("Sending data to backend API");
+        const res = await axios.post("https://swanbackend.onrender.com/api/visitors", payload);
+        
+        if (res.status === 201 || res.status === 200) {
+          debugLog(`Data successfully sent! Response status: ${res.status}`);
+          setCollected(true);
+          
+          // Close the popup after success in all cases where it's visible
+          // (both first visit and edit mode)
+          if (!isBackground && open && typeof onClose === 'function') {
+            debugLog("Closing popup after successful data collection");
+            setTimeout(() => onClose(), 1500);
+          }
+        }
+      } catch (error) {
+        console.error("Failed to submit visitor data:", error);
+        debugLog(`API error: ${error.message}`);
+        // Still mark as collected to avoid multiple attempts
         setCollected(true);
-        setTimeout(() => onClose(), 1500);
       }
     } catch (err) {
       console.error("❌ Error collecting visitor info:", err);
+      debugLog(`Fatal error in data collection: ${err.message}`);
       setLocationError("Error collecting visitor information. Please try again later.");
+      setCollected(true);
     }
     setLoading(false);
   };
