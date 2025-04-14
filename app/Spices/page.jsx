@@ -321,6 +321,33 @@ const solutions = [
               "description": "Brown mustard seeds have a sharp, pungent taste and are popular in Indian regional cuisines."
             }
           }
+        ],
+        "recommended": [
+          {
+            "image": "/img1.jpeg",
+            "title": "swan 300 belt type ms frame"
+          },
+          {
+            "image": "/img2.jpeg",
+            "title": "swan 300 mm belt type"
+          },
+          {
+            "image": "/img3.jpg",
+            "title": "swan 1 chute 64 channels"
+          },
+          {
+            "image": "/img4.jpeg",
+            "title": "swan 3 Chute 192 Channel"
+          },
+          {
+            "image": "/img5.jpeg",
+            "title": "swan 2 chute 128 channel box type"
+          },
+          {
+            "image": "/img6.jpeg",
+            "title": "Swan 3 chute 192 channel"
+          }
+          
         ]
       }
 

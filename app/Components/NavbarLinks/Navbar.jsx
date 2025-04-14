@@ -77,7 +77,7 @@ const Navbar = () => {
               {/* <Link href="/Multigrains" className="hover:text-blue-500 transition">Grains/Nut Sorting</Link> */}
               <Link href="/Solutions" className="hover:text-blue-500 transition"> Solutions </Link>
               <Link href="/Multigrains" className="hover:text-blue-500 transition"> MultiGrains </Link>
-              <Link href="/Spices" className="hover:text-blue-500 transition">Minerals Sorting</Link>
+              <Link href="/Spices" className="hover:text-blue-500 transition">Spices Sorting</Link>
               <Link href="/Pulses" className="hover:text-blue-500 transition">All Types Of Pulses</Link>
             </motion.div>
           </div>
