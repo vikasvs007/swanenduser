@@ -30,7 +30,7 @@ const techData = [
     icon: FaMagnet,
     title: "Air Pressure",
     content: "Efficient sorting through advanced air pressure technology for high-speed separation.",
-    image: "/feature-sorter-maglev-ejectors.webp",
+    image: "/Airpressure.png",
   },  
   {
     icon: FaLightbulb,
@@ -42,19 +42,19 @@ const techData = [
     icon: FaWifi,
     title: "Remote Control",
     content: "Monitor and control operations remotely.",
-    image: "/feature-sorter-spectral-lights.webp",
+    image: "/RS1500.webp",
   },
   {
     icon: FaCrosshairs,
     title: "Compressor Power",
     content: "Utilizing high-powered compressors for accurate defect detection and enhanced sorting precision.",
-    image: "/feature-sorter-sniper-system.webp",
+    image: "/feature-sorter-sniper-system.jpg",
   },  
   {
     icon: FaSlidersH,
     title: "User Interface",
     content: "Intuitive UI for seamless operation.",
-    image: "/feature-sorter-maglev-ejectors.webp",
+    image: "/Screenshot 2025-04-18 174857.png",
   },
 ];
 
@@ -147,7 +147,7 @@ const AiSorting = () => {
             alt={activeTab}
             width={500}
             height={300}
-            className="rounded-lg object-cover transition-opacity duration-500 ease-in-out"
+            className="rounded-lg h-96 object-center transition-opacity duration-500 ease-in-out"
           />
         </motion.div>
       </motion.div>

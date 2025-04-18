@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/SwanSorter_Logo-02.png" type="image/png" />
+        <link rel="icon" href="/Logo_img.png" type="image/png" />
       </head>
       <body>{children}</body>
     </html>
