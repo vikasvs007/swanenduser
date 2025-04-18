@@ -609,26 +609,38 @@ const ChatBot = () => {
                         <h3 className="font-semibold text-primary mb-2">
                           {message.content}
                         </h3>
-                        <div className="space-y-2">
-                          <p className="text-foreground flex items-center">
-                            <Phone className="h-4 w-4 mr-2 text-primary" />
-                            +1 (555) 123-4567
-                          </p>
-                          <p className="text-foreground flex items-center">
-                            <MessageCircle className="h-4 w-4 mr-2 text-primary" />
-                            support@swansorter.com
-                          </p>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="mt-1 text-primary  hover:bg-primary/10"
-                            onClick={() => {
-                              window.open("tel:+15551234567", "_blank");
-                            }}
-                          >
-                            {getTranslatedText("callNow")}
-                          </Button>
-                        </div>
+                        <div className="space-y-4">
+  <div className="text-foreground flex items-start gap-2">
+    <Phone className="h-4 w-4 mt-1 text-primary" />
+    <div className="space-y-1">
+      <p>Marketing team:</p>
+      <p>+91 95383 88146</p>
+      <p>+91 97424 28946</p>
+      <p>+91 78291 84646</p>
+      <p>Service team:</p>
+      <p>+91 9844015015</p>
+      <p>+91 9986589456</p>
+      <p>+91 9844071071</p>
+    </div>
+  </div>
+
+  <div className="text-foreground flex items-center gap-2">
+    <MessageCircle className="h-4 w-4 text-primary" />
+    <p>support@swansorter.com</p>
+  </div>
+
+  <Button
+    variant="outline"
+    size="sm"
+    className="text-primary hover:bg-primary/10"
+    onClick={() => {
+      window.open("tel:+919538388146");
+    }}
+  >
+    {getTranslatedText("callNow")}
+  </Button>
+</div>
+
                       </div>
                     ) : message.type === MessageType.CATALOG ? (
                       <div className=" backdrop-blur-sm rounded-lg p-4 max-w-[85%] border border-primary/20  transition-all duration-300 ">
