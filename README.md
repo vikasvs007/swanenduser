@@ -29,37 +29,62 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Hostinger
+## Deploy on Hostinger using Git
 
-To deploy this Next.js application on Hostinger:
+To deploy this Next.js application on Hostinger using Git:
 
-1. Build your application:
+1. Log in to your Hostinger control panel.
+
+2. Navigate to "Websites" > select your domain > "Hosting" tab.
+
+3. Set up Git deployment:
+   - Look for "Git" or "Advanced" section in the control panel
+   - Enable Git version control
+   - Create a new repository or connect to an existing one
+
+4. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
+   ```
+
+5. Push your code to the repository:
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push origin main
+   ```
+
+6. On the Hostinger server (via SSH or Terminal in cPanel):
+   ```bash
+   cd /path/to/repository
+   npm install
+   ```
+
+7. Update your `.env.production` file with your actual domain:
+   ```
+   NEXT_PUBLIC_SITE_URL=https://swansorter.com
+   NODE_ENV=production
+   ```
+
+8. Build your application:
    ```bash
    npm run build
    ```
 
-2. Upload the following files and folders to your Hostinger hosting via FTP:
-   - `.next/` directory
-   - `public/` directory
-   - `node_modules/` directory
-   - `.htaccess` file
-   - `package.json` and `package-lock.json` files
-   - `.env.production` file
+9. For Hostinger's Node.js hosting:
+   - Set Node.js version in control panel (use the same as your local version)
+   - Configure application start command: `node server.js`
+   - Set Application URL to your domain
 
-3. If you're using Hostinger's Node.js hosting:
-   - Set the Node.js version to the version used in your project
-   - Set the startup file to `server.js`
-   - Set the Application URL to your domain
+10. Set up PM2 (if available) to keep your app running:
+    ```bash
+    npm install pm2 -g
+    pm2 start server.js --name your-app-name
+    pm2 startup
+    pm2 save
+    ```
 
-4. If you're using shared hosting without Node.js support:
-   - Export your app as a static website:
-     ```bash
-     next build && next export
-     ```
-   - Upload the `out/` directory to your hosting
-
-5. Configure your domain in the Hostinger control panel.
-
-6. Make sure your `.env.production` file has the correct domain set in `NEXT_PUBLIC_SITE_URL`.
+11. Configure your domain in the Hostinger control panel.
 
 For more information, check out the [Hostinger Knowledge Base](https://www.hostinger.com/tutorials).

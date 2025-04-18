@@ -3,6 +3,31 @@ import Image from "next/image";
 import Navbar from "@/app/Components/NavbarLinks/Navbar";
 import Footerpage from "@/app/Components/LandingPages/Footerpage";
 
+// Add generateStaticParams function
+export async function generateStaticParams() {
+  try {
+    const response = await fetch(
+      "https://swanbackend.onrender.com/api/blogs",
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      console.error("Failed to fetch blogs for static generation");
+      return [{ id: "default" }]; // Fallback
+    }
+
+    const data = await response.json();
+    
+    // Return the list of blog IDs as params
+    return data.blogs.map((blog) => ({
+      id: blog._id,
+    }));
+  } catch (error) {
+    console.error("Error generating static params:", error);
+    return [{ id: "default" }]; // Fallback
+  }
+}
+
 const BlogDetailPage = async (props) => {
   const params = await props.params; // ✅ await the params
   const { id } = params;
