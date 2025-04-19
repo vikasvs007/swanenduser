@@ -158,7 +158,7 @@ const Footerpage = () => {
           {[
             { path: "/PrivacyPolicy", label: "Privacy Policy" },
             { path: "/Terms", label: "Terms & Conditions" },
-            { path: "/Terms", label: "SiteMaps" },
+            { path: "/SiteMaps", label: "SiteMaps" },
           ].map(({ path, label }) => (
             <Link
               key={path}

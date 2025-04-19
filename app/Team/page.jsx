@@ -20,7 +20,7 @@ const team = [
     name: "Mr. Vinayaka T.",
     role: "Director – Technical",
     category: "Leadership",
-    image: "partners2.jpeg",
+    image: "/partners2.jpeg",
   },
   {
     name: "Varsha",

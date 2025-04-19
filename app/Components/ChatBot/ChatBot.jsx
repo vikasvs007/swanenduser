@@ -40,7 +40,7 @@ const MessageType = {
 };
 
 // API endpoint for products
-const API_ENDPOINT = "https://crud-backend-a70z.onrender.com/api/products";
+const API_ENDPOINT = process.env.NEXT_PUBLIC_API_URL || "http://147.93.29.202:5000/api/products";
 
 // Form validation function
 const validateForm = (formData) => {
@@ -612,25 +612,42 @@ const ChatBot = () => {
                           {message.content}
                         </h3>
                         <div className="space-y-2">
-                          <p className="text-foreground flex items-center">
-                            <Phone className="h-4 w-4 mr-2 text-primary" />
-                            +1 (555) 123-4567
-                          </p>
-                          <p className="text-foreground flex items-center">
-                            <MessageCircle className="h-4 w-4 mr-2 text-primary" />
-                            support@swansorter.com
-                          </p>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="mt-1 text-primary  hover:bg-primary/10"
-                            onClick={() => {
-                              window.open("tel:+15551234567", "_blank");
-                            }}
-                          >
-                            {getTranslatedText("callNow")}
-                          </Button>
+                          <div className="text-foreground">
+                            <div className="flex items-center mb-2">
+                              <Phone className="h-4 w-4 mr-2 text-primary" />
+                              <span className="font-medium">Marketing team:</span>
+                            </div>
+                            <ul className="ml-6 space-y-1">
+                              <li>+91 95383 88146</li>
+                              <li>+91 97424 28946</li>
+                              <li>+91 78291 84646</li>
+                            </ul>
+                            
+                            <div className="flex items-center mt-4 mb-2">
+                              <Phone className="h-4 w-4 mr-2 text-primary" />
+                              <span className="font-medium">Service team:</span>
+                            </div>
+                            <ul className="ml-6 space-y-1">
+                              <li>+91 9844015015</li>
+                              <li>+91 9986589456</li>
+                              <li>+91 9844071071</li>
+                            </ul>
+                          </div>
                         </div>
+                        <p className="text-foreground flex items-center">
+                          <MessageCircle className="h-4 w-4 mr-2 text-primary" />
+                          support@swansorter.com
+                        </p>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="mt-1 text-primary  hover:bg-primary/10"
+                          onClick={() => {
+                            window.open("tel:+91 95383 88146", "_blank");
+                          }}
+                        >
+                          {getTranslatedText("callNow")}
+                        </Button>
                       </div>
                     ) : message.type === MessageType.CATALOG ? (
                       <div className=" backdrop-blur-sm rounded-lg p-4 max-w-[85%] border border-primary/20  transition-all duration-300 ">

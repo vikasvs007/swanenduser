@@ -9,12 +9,13 @@ import ContactSidebar from "../Components/LandingPages/ContactSidebar";
 
 const galleryImages = [
   { src: "/event1.jpg", alt: "Event 1", category: "Events" },
-  { src: "/heap-macadamia-nuts-with-shells_493806-12754.webp", alt: "Team 1", category: "Team" },
-  { src: "/img5.jpeg", alt: "Office 1", category: "Office" },
+  { src: "/partners1.jpeg", alt: "Team 1", category: "Team" },
+  { src: "/offi3.jpeg", alt: "Office 1", category: "Office" },
   { src: "/img6.jpeg", alt: "Manufacturing 1", category: "Manufacture" },
-  { src: "/img7.jpeg", alt: "Team 2", category: "Team" },
+  { src: "/partners2.jpeg", alt: "Team 2", category: "Team" },
   { src: "/img8.jpeg", alt: "Event 2", category: "Events" },
-  { src: "/img9.jpeg", alt: "Office 2", category: "Office" },
+  { src: "/office2.jpeg", alt: "Office 2", category: "Office" },
+  { src: "/office1.jpeg", alt: "Office 2", category: "Office" },
   { src: "/img10.jpeg", alt: "Manufacturing 2", category: "Manufacture" },
   { src: "/img11.jpeg", alt: "Workshop 1", category: "Workshop" },
   { src: "/img12.jpeg", alt: "Administer 1", category: "Administer" },
