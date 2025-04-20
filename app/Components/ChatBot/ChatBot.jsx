@@ -28,6 +28,17 @@ import {
   baseTranslations,
 } from "./ChatBot_Utils/translate";
 
+// Helper function for image error fallback
+const getImageWithFallback = (localPath, backupUrl) => {
+  try {
+    // Just to test if file exists
+    new URL(localPath, window.location.origin);
+    return localPath;
+  } catch (error) {
+    return backupUrl || '/placeholder.svg';
+  }
+};
+
 // Define message types
 const MessageType = {
   USER: "user",
@@ -461,9 +472,9 @@ const ChatBot = () => {
                 <div className="flex items-center">
                   <div className="relative w-14 mx-2 h-10 ">
                     <img
-                      src="/SwanSorter_Logo-02.png"
+                      src={getImageWithFallback("/SwanSorter_Logo-02.png", "https://swansorter.com/SwanSorter_Logo-02.png")}
                       alt="SwanSorter"
-                      className="h-10 w-20 animate-float rounded-full "
+                      className="h-10 w-20 animate-float rounded-full"
                     />
                   </div>
                   <div className="w-28 h-16">
@@ -562,14 +573,9 @@ const ChatBot = () => {
                                 >
                                   {product.image_url && (
                                     <img
-                                      src={product.image_url}
+                                      src={getImageWithFallback(product.image_url, "/placeholder.svg?height=100&width=100")}
                                       alt={product.name}
                                       className="w-full h-32 object-cover rounded-md mb-2"
-                                      onError={(e) => {
-                                        e.target.onerror = null;
-                                        e.target.src =
-                                          "/placeholder.svg?height=100&width=100";
-                                      }}
                                     />
                                   )}
                                   <h3 className="font-semibold text-primary">

@@ -10,6 +10,12 @@ import GoogleTranslateDropdown from "../Google_Translator/google";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
+
+  // Logo with fallback handling
+  const logoSrc = logoError 
+    ? "https://swansorter.com/Logo_img.png" // Fallback to absolute URL if needed
+    : "/Logo_img.png";
 
   return (
     <nav className="w-[90%] max-w-7xl mx-auto my-4">
@@ -22,11 +28,13 @@ const Navbar = () => {
           className="flex items-center gap-3"
         >
           <Image
-            src="/Logo_img.png"
+            src={logoSrc}
             className="rounded-full"
             alt="SwanSorter Logo"
             width={50}
             height={50}
+            onError={() => setLogoError(true)}
+            priority={true}
           />
           <h1 className="text-sm sm:text-lg font-bold leading-3.5">
             SwanSorter <br />

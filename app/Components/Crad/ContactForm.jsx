@@ -10,9 +10,16 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("");
   const [subject, setSubject] = useState(""); // 🆕 product field
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Prevent multiple submissions
+    if (isSubmitting) return;
+    
+    setIsSubmitting(true);
+    const toastId = toast.loading("Sending your message...");
 
     const formData = {
       name,
@@ -23,13 +30,27 @@ export default function ContactForm() {
     };
 
     try {
-      const response = await axios.post(
-        "http://147.93.29.202:5000/api/enquiries",
-        formData
-      );
+      // Use environment variable with fallback or relative URL
+      const apiUrl = "/api/enquiries"; // Always use relative URL in production
+        
+      // Set a timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+      
+      const response = await axios.post(apiUrl, formData, {
+        signal: controller.signal,
+        // Retry logic built in
+        timeout: 15000, // 15 seconds timeout
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      });
+      
+      clearTimeout(timeoutId);
 
       if (response.status === 200 || response.status === 201) {
-        toast.success("Message sent successfully!");
+        toast.success("Message sent successfully!", { id: toastId });
         console.log("Response:", response.data);
         setName("");
         setEmail("");
@@ -38,13 +59,27 @@ export default function ContactForm() {
         setMessage("");
       } else {
         console.error("Unexpected response:", response);
-        toast.error("Something went wrong. Please try again.");
+        toast.error("Something went wrong. Please try again.", { id: toastId });
       }
     } catch (error) {
       console.error("Error occurred while sending message:", error);
-      toast.error(
-        error.response?.data?.message || "Failed to send. Please try again later."
-      );
+      
+      // Handle different error types
+      if (error.name === 'AbortError' || error.code === 'ECONNABORTED') {
+        toast.error("Request timed out. Please check your connection and try again.", { id: toastId });
+      } else if (error.message === 'Network Error') {
+        toast.error("Network error. Please check your connection and try again.", { id: toastId });
+      } else if (error.response) {
+        // The request was made and the server responded with a status code outside the 2xx range
+        toast.error(error.response.data?.message || "Failed to send. Server error.", { id: toastId });
+      } else if (error.request) {
+        // The request was made but no response was received
+        toast.error("No response from server. Please try again later.", { id: toastId });
+      } else {
+        toast.error("An unexpected error occurred. Please try again.", { id: toastId });
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -124,9 +159,10 @@ export default function ContactForm() {
           <div className="mt-6 text-center">
             <button
               type="submit"
-              className="bg-gradient-to-r from-green-400 to-blue-400 text-white font-semibold px-8 py-3 rounded-md transition duration-300"
+              disabled={isSubmitting}
+              className={`bg-gradient-to-r from-green-400 to-blue-400 text-white font-semibold px-8 py-3 rounded-md transition duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </div>
         </form>

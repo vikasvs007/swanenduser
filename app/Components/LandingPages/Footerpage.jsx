@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -7,6 +7,13 @@ import { FaFacebookF, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footerpage = () => {
+  const [logoError, setLogoError] = useState(false);
+
+  // Logo with fallback handling
+  const logoSrc = logoError 
+    ? "https://swansorter.com/Logo_img.png" // Fallback to absolute URL if needed
+    : "/Logo_img.png";
+
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -23,11 +30,13 @@ const Footerpage = () => {
           className="flex flex-col items-center md:items-start space-y-4"
         >
           <Image
-            src="/Logo_img.png"
+            src={logoSrc}
             alt="Swan Sorter Systems Logo"
             className="rounded-full"
             width={120}
             height={40}
+            onError={() => setLogoError(true)}
+            priority={true}
           />
           <h1 className="text-2xl font-bold text-gray-900 text-center md:text-left">
             SwanSorter Systems Pvt Ltd

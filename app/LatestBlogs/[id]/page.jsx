@@ -13,7 +13,7 @@ const BlogDetailPage = async (props) => {
   let blog;
   try {
     const response = await fetch(
-      `http://147.93.29.202:5000/api/blogs/${id}`,
+      `/api/blogs/${id}`,
       { cache: "no-store" }
     );
 

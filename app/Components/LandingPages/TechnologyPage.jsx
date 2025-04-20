@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Marquee from "react-fast-marquee";
 
@@ -16,17 +16,57 @@ const TechnologyPage = () => {
   const translateYText = useTransform(scrollYProgress, [0, 1], ["50px", "0px"]);
   const videoScale = useTransform(scrollYProgress, [0, 1], [0.85, 1]);
 
-  // ✅ Video Array and State
-  const videoSources = ["/demo.mp4", "/Demo1.mp4", "/demo3.mp4"];
+  // Video Array with fallback YouTube URLs
+  const [videoSources, setVideoSources] = useState([]);
+  const [videoType, setVideoType] = useState("local"); // "local" or "youtube"
   const [videoIndex, setVideoIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // YouTube embed fallbacks
+  const youtubeEmbeds = [
+    "https://www.youtube.com/embed/TclxgUBZiN0",
+    "https://www.youtube.com/embed/LHFwkxbFzig",
+    "https://www.youtube.com/embed/hWz0s3iwPXg"
+  ];
+
+  useEffect(() => {
+    // Check if the local video files exist, if not, use YouTube embeds
+    const checkVideoAvailability = async () => {
+      try {
+        // Try to fetch the first video file
+        const response = await fetch("/demo.mp4", { method: 'HEAD' });
+        
+        if (response.ok) {
+          // If videos are available, use local files
+          setVideoSources(["/demo.mp4", "/Demo1.mp4", "/demo3.mp4"]);
+          setVideoType("local");
+        } else {
+          // If videos are not available, switch to YouTube embeds
+          setVideoType("youtube");
+        }
+      } catch (error) {
+        // On error, fall back to YouTube embeds
+        setVideoType("youtube");
+      }
+    };
+    
+    checkVideoAvailability();
+  }, []);
 
   const nextVideo = () => {
-    setVideoIndex((prev) => (prev + 1) % videoSources.length);
+    if (videoType === "local") {
+      setVideoIndex((prev) => (prev + 1) % videoSources.length);
+    } else {
+      setVideoIndex((prev) => (prev + 1) % youtubeEmbeds.length);
+    }
   };
 
   const prevVideo = () => {
-    setVideoIndex((prev) => (prev === 0 ? videoSources.length - 1 : prev - 1));
+    if (videoType === "local") {
+      setVideoIndex((prev) => (prev === 0 ? videoSources.length - 1 : prev - 1));
+    } else {
+      setVideoIndex((prev) => (prev === 0 ? youtubeEmbeds.length - 1 : prev - 1));
+    }
   };
 
   // Open and close modal
@@ -103,14 +143,25 @@ const TechnologyPage = () => {
           className="video w-full h-full md:w-[48%] md:my-10 my-5 relative"
           style={{ scale: videoScale }}
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-72 object-cover rounded-3xl"
-            src={videoSources[videoIndex]}
-          />
+          {videoType === "local" ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-72 object-cover rounded-3xl"
+              src={videoSources[videoIndex]}
+            />
+          ) : (
+            <iframe
+              className="w-full h-72 rounded-3xl"
+              src={youtubeEmbeds[videoIndex]}
+              title="Product video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          )}
 
           {/* ⬅️ Left Arrow */}
           <button
@@ -175,12 +226,23 @@ const TechnologyPage = () => {
             >
               &times;
             </button>
-            <video
-              controls
-              autoPlay
-              className="w-full h-72 rounded-lg"
-              src={videoSources[videoIndex]}
-            />
+            {videoType === "local" ? (
+              <video
+                controls
+                autoPlay
+                className="w-full h-72 rounded-lg"
+                src={videoSources[videoIndex]}
+              />
+            ) : (
+              <iframe
+                className="w-full h-72 rounded-lg"
+                src={youtubeEmbeds[videoIndex]}
+                title="Product video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            )}
           </div>
         </div>
       )}

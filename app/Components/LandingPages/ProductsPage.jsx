@@ -8,6 +8,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
+// Add a fallback image for video
+const videoFallbackImage = "/sorting-material-Rice-Accept.webp";
+
 const products = [
   {
     id: 9,
@@ -15,6 +18,7 @@ const products = [
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img9.jpeg",
     video: "/Video1.mp4",
+    videoFallback: videoFallbackImage,
     link: "/Products/pro8",
     orderLink: "/Orders"
   },
@@ -25,6 +29,7 @@ const products = [
       "We are well known as the reputed organization in this field of operation,",
     image: "/img12.jpeg",
     video: "/Video1.mp4",
+    videoFallback: videoFallbackImage,
     link: "/Products/pro11",
     orderLink: "/Orders"
   },
@@ -34,6 +39,7 @@ const products = [
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img3.Jpg",
     video: "/Video1.mp4",
+    videoFallback: videoFallbackImage,
     link: "/Products/pro2",
     orderLink: "/Orders"
   },
@@ -43,6 +49,7 @@ const products = [
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img6.jpeg",
     video: "/Video1.mp4",
+    videoFallback: videoFallbackImage,
     link: "/Products/pro3",
     orderLink: "/Orders"
   },
@@ -52,6 +59,7 @@ const products = [
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img4.jpeg",
     video: "/Video1.mp4",
+    videoFallback: videoFallbackImage,
     link: "/Products/pro5",
     orderLink: "/Orders"
   },
@@ -61,6 +69,7 @@ const products = [
     description: "Enhance sorting efficiency with AI-powered technology.",
     image: "/img7.jpeg",
     video: "/Video1.mp4",
+    videoFallback: videoFallbackImage,
     link: "/Products/pro6",
     orderLink: "/Orders"
   },
@@ -70,6 +79,7 @@ const products = [
     description: "We manufacture high-quality Dal Color Sorter Machines.",
     image: "/img4.jpeg",
     video: "/Video1.mp4",
+    videoFallback: videoFallbackImage,
     link: "/Products/pro5",
     orderLink: "/Orders"
   },
@@ -80,6 +90,7 @@ const products = [
       "We are well known as the reputed organization ",
     image: "/img8.jpeg",
     video: "/Video1.mp4",
+    videoFallback: videoFallbackImage,
     link: "/Products/pro7",
     orderLink: "/Orders"
   },
@@ -89,6 +100,7 @@ const products = [
     description: "Premium sorting technology for precision sorting.",
     image: "/img10.jpeg",
     video: "/Video1.mp4",
+    videoFallback: videoFallbackImage,
     link: "/Products/pro9",
     orderLink: "/Orders"
   }
@@ -162,15 +174,29 @@ const ProductsPage = () => {
                     className="w-full h-full object-contain absolute top-0 left-0 transition-opacity duration-500"
                     style={{ opacity: hoveredIndex === index ? 0 : 1 }}
                   />
-                  <motion.video
-                    src={product.video}
-                    className="w-full h-full object-contain absolute top-0 left-0 transition-opacity duration-500"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    style={{ opacity: hoveredIndex === index ? 1 : 0 }}
-                  />
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="relative overflow-hidden rounded-lg shadow-lg"
+                  >
+                    <div className="relative">
+                      <motion.video
+                        src={product.video}
+                        className="w-full h-48 object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        onError={(e) => {
+                          // If video fails to load, replace with fallback image
+                          e.currentTarget.style.display = 'none';
+                          e.currentTarget.parentNode.style.backgroundImage = `url(${product.videoFallback})`;
+                          e.currentTarget.parentNode.style.backgroundSize = 'cover';
+                          e.currentTarget.parentNode.style.backgroundPosition = 'center';
+                          e.currentTarget.parentNode.style.height = '12rem'; // 48px (h-48)
+                        }}
+                      />
+                    </div>
+                  </motion.div>
                 </div>
 
                 <h3 className="text-lg sm:text-xl font-semibold mt-3">{product.name}</h3>

@@ -16,6 +16,7 @@ const Page = () => {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -23,27 +24,61 @@ const Page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.loading("Submitting your enquiry...");
+    
+    // Prevent multiple submissions
+    if (isSubmitting) return;
+    
+    setIsSubmitting(true);
+    const toastId = toast.loading("Submitting your enquiry...");
 
     try {
-      const res = await fetch("http://147.93.29.202:5000/api/enquiries", {
+      // Use relative URL in production for consistent behavior
+      const apiUrl = "/api/enquiries";
+      
+      // Set up controller for timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+        
+      const res = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify(formData),
+        signal: controller.signal
       });
+      
+      clearTimeout(timeoutId);
+      toast.dismiss(toastId);
 
-      toast.dismiss(); // Remove loading
-
-      if (!res.ok) throw new Error("Failed to submit enquiry");
+      if (!res.ok) {
+        // Try to get error message from response
+        let errorMessage = "Failed to submit enquiry";
+        try {
+          const errorData = await res.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (e) {
+          console.error("Error parsing error response:", e);
+        }
+        throw new Error(errorMessage);
+      }
 
       toast.success("Enquiry submitted successfully!");
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch (error) {
-      toast.dismiss();
-      toast.error("Something went wrong. Please try again.");
       console.error("Submit Error:", error);
+      
+      // Handle different error types
+      if (error.name === 'AbortError') {
+        toast.error("Request timed out. Please check your connection and try again.", { id: toastId });
+      } else if (error.message.includes('Network')) {
+        toast.error("Network error. Please check your connection and try again.", { id: toastId });
+      } else {
+        toast.error(error.message || "Something went wrong. Please try again.", { id: toastId });
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -60,7 +95,7 @@ const Page = () => {
             </span>
           </h2>
           <p className="text-center text-gray-600 text-base sm:text-lg mb-10">
-            Let us know your requirements, and we’ll get back to you as soon as possible.
+            Let us know your requirements, and we'll get back to you as soon as possible.
           </p>
 
           <form
@@ -121,9 +156,10 @@ const Page = () => {
 
             <button
               type="submit"
-              className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-green-400 to-blue-400 text-white font-semibold rounded-full shadow hover:shadow-lg transition"
+              disabled={isSubmitting}
+              className={`w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-green-400 to-blue-400 text-white font-semibold rounded-full shadow hover:shadow-lg transition ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              Submit enquiry
+              {isSubmitting ? 'Submitting...' : 'Submit enquiry'}
             </button>
           </form>
         </div>
